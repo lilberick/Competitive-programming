@@ -1,0 +1,50 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2454
+*******Solucion:
+#include <iostream>
+#include <vector>
+using namespace std;
+//vector<int> Li,Lo,Si,So,dado,player;
+int casos,jugadores,cosas,dados;
+int main(){
+	cin>>casos;
+	while(casos>0){
+		//cout<<"PARTIDITA NUMERO= "<<casos<<endl;
+		vector<int> Li,Lo,Si,So,dado,player;
+		int r=0;
+		bool gameovermichilover=false;
+		cin>>jugadores>>cosas>>dados;
+		int a,b;
+		for(int i=0;i<cosas;i++){
+			cin>>a>>b;
+			if(a<b){Li.push_back(a);Lo.push_back(b);}	
+			if(a>b){Si.push_back(a);So.push_back(b);}
+		}
+		int rico;	
+		for(int i=0;i<dados;i++){cin>>rico;dado.push_back(rico);}
+		if(jugadores>0){
+			//Ponemos a los jugadors en el lugar 1 de partida
+			for(int i=0;i<jugadores;i++){player.push_back(1);}
+			//EMPIEZA LA PARTIDA:
+			for(int i=0;i<dados && gameovermichilover==false;i++){
+				if(r>=jugadores){r=0;}
+				player[r]=player[r]+dado[i];
+				if(player[r]>=100){player[r]=100;gameovermichilover=true;}
+				//Aca se mueve todo lo que tiene que moverse:
+				bool termina1=false,termina2=false;
+				for(int i=0;i<Li.size() && termina1==false;i++){if(player[r]==Li[i]){player[r]=Lo[i];termina1=true;}}
+				if(player[r]>=100){player[r]=100;gameovermichilover=true;}
+				for(int i=0;i<Si.size() && termina2==false;i++){if(player[r]==Si[i]){player[r]=So[i];termina2=true;}}
+				if(player[r]>=100){player[r]=100;gameovermichilover=true;}
+				//cout<<" player["<<r<<"]="<<player[r]<<endl;
+				r++;
+			}
+			for(int i=0;i<jugadores;i++){
+				cout<<"Position of player "<<i+1<<" is "<<player[i]<<"."<<endl;
+			}
+		}
+		casos--;
+	}
+	return 0;
+}
+*******

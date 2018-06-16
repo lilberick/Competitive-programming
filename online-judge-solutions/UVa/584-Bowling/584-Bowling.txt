@@ -1,0 +1,45 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=525
+*******Solucion:
+#include <iostream>
+#include <vector>
+using namespace std;
+int p,total;
+int main(){
+	int suma[1000000];
+	string palabra,repuesto,a;
+	while(getline(cin,palabra) && palabra!="Game Over"){
+		repuesto=repuesto.empty();
+		a=a.empty();
+	for(int i=0;i<palabra.size();i++){
+		if(palabra[i]!=' ' && palabra[i]!='X'){repuesto=repuesto+palabra[i];}
+		else if(palabra[i]=='X'){repuesto=repuesto+"X ";}
+	}
+	a=repuesto;
+	total=0;
+	for(int i=0;i<=19;i++){
+		if(i%2!=0){
+			if(a[i]>=48 && a[i]<=57){
+				if(a[i+1]>=48 && a[i+1]<=57){suma[i]=a[i]+a[i+1]-48*2;}	
+				else if(a[i+1]=='/'){
+					if(a[i+2]=='X'){suma[i]=20;}
+					else{suma[i]=a[i+2]+10-48;}
+				}
+			}else if(a[i]=='X'){
+				if(a[i+3]=='/'){suma[i]=20;}
+				else if(a[i+3]>=48 && a[i+3]<=57){suma[i]=a[i+2]+a[i+3]+10-48*2;}
+				else if(a[i+3]==' '){
+					if(a[i+4]=='X'){suma[i]=30;}
+					else if(a[i+4]>=48 && a[i+4]<=57){suma[i]=20+a[i+4]-48;}
+					else if(a[i+5]=='/'){suma[i]=20+a[i+4]-48;}
+				}
+			}
+			total=total+suma[i];
+		}
+	}
+	palabra=palabra.empty();
+	cout<<total<<endl;
+	}
+	return 0;
+}
+*******

@@ -1,0 +1,63 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=430
+*******Solucion
+#include <iostream> 
+using namespace std;
+string a,b;
+string cortar(string palabra,char letra){
+        string palabrota;
+        for(int i=0;i<palabra.size();i++){
+                if(palabra[i]!=letra){palabrota=palabrota+palabra[i];}
+        }
+        return palabrota;
+}
+string letrasdiferentes(string palabra){
+	for(int i=0;i<palabra.size();i++){
+		palabra=cortar(palabra,palabra[0])+palabra[0];
+	}
+	return palabra;
+}
+void ahorcadoganzo(string modelo,string tengo){
+	modelo=letrasdiferentes(modelo);
+	tengo=letrasdiferentes(tengo);
+	int error=0,t;
+	bool x;
+	string rica;
+	rica=modelo;
+	for(int i=0;i<tengo.size();i++){
+                t=0;
+		x=false;
+                for(int j=0;j<rica.size() && x==false;j++){
+                        if(tengo[i]==rica[j]){
+                                rica=cortar(rica,tengo[i]);
+				t=0;
+				x=true;
+                        }else if(tengo[i]!=rica[j]){
+                                t++;
+                        }
+                }
+                if(t>0){error++;}
+		//cout<<"error "<<i<<"="<<error<<endl;
+		//cout<<"modelo "<<i<<"="<<rica<<endl;
+        }
+	if(error<7){
+		if(rica.size()==0){
+			cout<<"You win."<<endl;			
+		}else if(rica.size()>0){
+			cout<<"You chickened out."<<endl;
+		}
+	}else if(error>=7){
+		cout<<"You lose."<<endl;	
+	}
+}	
+int main(){
+	int round;
+	while(cin>>round && round!=-1){
+		cin>>a>>b;	
+		cout<<"Round "<<round<<endl;
+		ahorcadoganzo(a,b);
+	}
+	return 0;
+}
+*******
+

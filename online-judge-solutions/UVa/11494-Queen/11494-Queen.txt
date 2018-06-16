@@ -1,0 +1,134 @@
+*******Link del problema
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2489
+*******Accepted
+#include <iostream>
+#include <stdlib.h>
+int a1,a2,b1,b2,a_absoluto,b_absoluto;
+
+using namespace std;
+
+int main() {
+    while(cin>>a1>>b1>>a2>>b2){
+    
+    if(a1==0 && a2==0 && b1==0 && b2==0){
+        return 0;
+    }
+    a_absoluto=abs(a1-a2);
+    b_absoluto=abs(b1-b2);
+    if(a1==a2 && b1==b2){
+        cout<<0<<endl;
+    }else if(a_absoluto == b_absoluto){
+            cout<<1<<endl;
+    }else if(a1==a2 || b1==b2){
+            cout<<1<<endl;
+    }else{
+            cout<<2<<endl;
+    }
+
+    }
+    return 0;
+}
+*******wrong answer(Pero me da la respuesta del ejemplo)
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+#define PI 3.14159265
+int angulo,t,omaiga=1,tmr=1;
+int Movimientos[1000],a1[1000],a2[1000],b1[1000],b2[1000];
+
+using namespace std;
+
+int main() {
+    while(tmr==1){
+        cin>>a1[t]>>b1[t]>>a2[t]>>b2[t];
+        if((a1[t]==0)&&(a2[t]==0)&&(b1[t]==0)&&(b2[t]==0)){
+            tmr=0;
+            t--;
+        }
+    t++;
+    }
+    for(int i=0;i<t;i++){
+        if(a1[i]==a2[i] && b1[i]==b2[i]){
+            Movimientos[i]=0;
+        }else{
+            angulo=atan(float(a1[i]-a2[i])/(b1[i]-b2[i]))*180/PI;
+            if(angulo%45==0){
+                Movimientos[i]=1;
+            }else{
+                Movimientos[i]=2;
+            }
+        }
+    }
+    for(int i=0;i<t-1;i++){
+        cout<<Movimientos[i]<<endl;
+    }
+    cout<<Movimientos[t-1];
+	return 0;
+}
+*******Modificando
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//#include <math.h>
+
+//#define PI 3.14159265
+int angulo,t,omaiga=1,tmr=1;
+int Movimientos[1000],a1[1000],a2[1000],b1[1000],b2[1000];
+
+using namespace std;
+
+int main() {
+    while(tmr==1){
+        //cin>>a1[t]>>b1[t]>>a2[t]>>b2[t];
+        scanf("%d %d %d %d\n",&a1[t],&b1[t],&a2[t],&b2[t]);
+        if((a1[t]==0)&&(a2[t]==0)&&(b1[t]==0)&&(b2[t]==0)){
+            tmr=0;
+            t--;
+        }
+    t++;
+    }
+    for(int i=0;i<t;i++){
+        if(a1[i]==a2[i] && b1[i]==b2[i]){
+            Movimientos[i]=0;
+        }else{
+            //angulo=atan(float(a1[i]-a2[i])/(b1[i]-b2[i]))*180/PI;
+            if(abs(a1[i]-a2[i])==abs(b1[i]-b2[i])){
+                Movimientos[i]=1;
+            }else{
+                Movimientos[i]=2;
+            }
+        }
+    }
+    for(int i=0;i<t-1;i++){
+        cout<<Movimientos[i]<<endl;
+    }
+    cout<<Movimientos[t-1];
+	return 0;
+}
+*******Sólo para un input
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+#define PI 3.14159265
+int a1,a2,b1,b2,Movimientos;
+int angulo;
+
+using namespace std;
+
+int main() {
+    cin>>a1>>b1>>a2>>b2;
+    if(a1==a2 && b1==b2){
+        Movimientos=0;
+    }else{
+        angulo=atan(float(a1-a2)/(b1-b2))*180/PI;
+        if(angulo%45==0){
+            Movimientos=1;
+        }else{
+            Movimientos=2;
+        }
+    }
+    cout<<Movimientos<<endl;
+	return 0;
+}
+*******
+
