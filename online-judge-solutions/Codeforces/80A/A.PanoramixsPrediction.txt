@@ -1,0 +1,35 @@
+*******Link del video:
+http://codeforces.com/problemset/problem/80/A
+*******ACCEPTED:
+#include <iostream>
+int valor,C[1000000],t,q,n,m;
+using namespace std;
+
+int main() {
+    cin>>n>>m;
+    
+	for(int j=n;j<=m;j++){
+	    for(int i=2;i<j;i++){
+	        if(j%i == 0){
+	            t++;
+	        }
+	    }
+	    if(t==0){
+	        C[q]=j;
+	        q++;
+	    }
+	    t=0;
+	}
+	/*
+	for(int i=0;i<q;i++){
+	    cout<<C[i]<<endl;
+	}*/
+	if(C[1]==m){
+	    cout<<"YES"<<endl;
+	}else{
+	    cout<<"NO"<<endl;
+	}
+	return 0;
+}
+*******
+

@@ -1,0 +1,66 @@
+*******Link del problema
+http://codeforces.com/problemset/problem/709/B
+*******Accepted
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+int n,k,b,t,A[1005],C[1005],longitud_clave,igualesAClave,D[1005],diosmio;
+int CuantosDiferentesTamanioshastaTamanioClave;
+int Aypapu,t_DifClave,t_Mejor,DiferenteAClave,Condicional,Aypapi,t_IguClave,t_Peor;
+using namespace std;
+int main() {
+    vector<int> B;
+    string posible[1005],a,tamanio,clave;
+    
+	cin>>n>>k;
+	for(int i=1;i<=n;i++){
+	    cin>>tamanio;
+        A[i]=tamanio.length();
+	}
+	cin>>clave;
+	longitud_clave=clave.length();
+	//Ordenamos:
+	for(int i=0;i<n;i++){
+	    B.push_back(A[i+1]);
+	    D[i+1]=A[i+1];
+	}
+	sort(B.begin(),B.end());
+	for(int i=0;i<n;i++){
+	    A[i+1]=B[i];
+	}
+	C[1]=A[1];
+	for(int i=1;i<=n;i++){
+	    if(A[i]==longitud_clave){
+	        igualesAClave++;
+	    }
+	    if((A[i+1]>A[i])&&(A[i]<=longitud_clave)){
+	        CuantosDiferentesTamanioshastaTamanioClave++;
+	    }
+	    if(A[i]<longitud_clave){
+	        DiferenteAClave++;
+	    }
+	}
+    t_Mejor=(DiferenteAClave+1)+(DiferenteAClave/k)*5;
+    diosmio=DiferenteAClave+igualesAClave-1;
+    t_Peor=diosmio+(diosmio/k)*5+1;
+
+	cout<<t_Mejor<<' '<<t_Peor<<endl;
+    //Comporbando:
+    /*
+	for(int i=1;i<=n;i++){
+	    //cout<<A[i]<<endl;
+	    cout<<A[i]<<endl;
+	}*/
+	/*
+	cout<<clave<<endl;
+	cout<<longitud_clave<<endl;
+	cout<<igualesAClave<<endl;
+	cout<<Condicional<<endl;
+	cout<<Aypapi<<endl;
+	cout<<t_DifClave<<endl;
+	*/
+	return 0;
+}
+*******
+
