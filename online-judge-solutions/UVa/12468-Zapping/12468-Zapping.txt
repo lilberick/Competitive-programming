@@ -1,0 +1,18 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3912
+*******Accepted:
+#include <iostream>
+int a,b,minimo;
+using namespace std;
+int Minimo(int x,int y){return y^((x^y) & -(x<y));}
+int main(){
+	while(cin>>a>>b && (a!=-1 && b!=-1)){
+		if(a<b){minimo=Minimo(100+a-b,b-a);}
+		else if(a>b){minimo=Minimo(100+b-a,a-b);}
+		else if(a==b){minimo=0;}	
+		cout<<minimo<<endl;
+	}
+	return 0;
+}
+*******
+

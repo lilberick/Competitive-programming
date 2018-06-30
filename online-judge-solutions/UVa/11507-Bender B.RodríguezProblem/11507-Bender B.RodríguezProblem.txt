@@ -1,0 +1,93 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2502
+*******Accepted:
+#include <iostream>
+int L;
+using namespace std;
+string Operando(string x,string y){
+	//PRIMERO
+	if(x=="+x" && y=="+y"){return "+y";}
+	else if(x=="-x" && y=="+y"){return "-y";}
+	else if(x=="+x" && y=="-y"){return "-y";}
+	else if(x=="-x" && y=="-y"){return "+y";}
+	//SEGUNDO
+	else if(x=="+x" && y=="+z"){return "+z";}
+	else if(x=="-x" && y=="+z"){return "-z";}
+	else if(x=="+x" && y=="-z"){return "-z";}
+	else if(x=="-x" && y=="-z"){return "+z";}
+	//TERCERO	
+	else if(x=="-y" && y=="+y"){return "+x";}
+	else if(x=="+y" && y=="-y"){return "+x";}
+	else if(x=="+y" && y=="+y"){return "-x";}
+	else if(x=="-y" && y=="-y"){return "-x";}
+	//CUARTO
+	else if(x=="-z" && y=="+z"){return "+x";}
+	else if(x=="+z" && y=="-z"){return "+x";}
+	else if(x=="+z" && y=="+z"){return "-x";}
+	else if(x=="-z" && y=="-z"){return "-x";}
+	//QUINTO
+	else if(x=="+z" && y=="+y"){return "+z";}
+	else if(x=="+y" && y=="+z"){return "+y";}
+	else if(x=="-y" && y=="-z"){return "-y";}
+	else if(x=="-z" && y=="-y"){return "-z";}
+	else if(x=="+z" && y=="-y"){return "+z";}
+	else if(x=="+y" && y=="-z"){return "+y";}
+	else if(x=="-y" && y=="+z"){return "-y";}
+	else if(x=="-z" && y=="+y"){return "-z";}
+	//SEXTO
+	else if(y=="No"){return x;}
+	else if(x=="No"){return y;}
+	
+}
+int main(){
+	while(cin>>L && L!=0){
+		cin.ignore();
+		string linea,a[100010];
+		int t=0;
+		//LEEMOS LA LINEA Y LA SEPARAMOS EN PARTECITAS
+		getline(cin,linea);
+		for(int i=0;i<linea.size();i++){
+			if(linea[i]!=' '){a[t]=a[t]+linea[i];}
+			else if(linea[i]==' '){t++;}
+		}
+		//EMPIEZA LO SHIDO
+		string resultado=a[0];
+		bool termina=false;
+		for(int i=1;i<=t && termina==false;i++){
+			resultado=Operando(resultado,a[i]);
+			if(i==L-1){termina=true;}
+		}
+		if(resultado=="No"){resultado="+x";}
+		cout<<resultado<<endl;
+	}
+	return 0;
+}
+*******INPUT AND OUTPUT
+1.INPUT:
+3
++z -z
+3
++z +y
+2
++z
+4
++z +y +z
+5
+No +z No No
+5
+No No No No
+3
+-y +z
+5
++z +z +z +z
+0
+1.OUTPUT:
++x
++z
++z
+-x
++z
++x
+-y
++x
+*******
