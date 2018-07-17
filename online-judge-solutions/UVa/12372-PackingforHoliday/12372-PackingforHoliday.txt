@@ -1,0 +1,17 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3794
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int T,a,b,c;
+	cin>>T;
+	for(int i=0;i<T;i++){
+		cin>>a>>b>>c;
+		cout<<"Case "<<i+1<<": ";
+		if(a>20 || b>20 || c>20){cout<<"bad"<<endl;}
+		else{cout<<"good"<<endl;}
+	}
+	return 0;
+}
+*******

@@ -1,0 +1,20 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3431
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int n,a,t,caso=0;
+	while(cin>>n && n!=0){
+		caso++;
+		t=0;
+		for(int i=0;i<n;i++){
+			cin>>a;
+			if(a!=0){t++;}
+			else{t--;}
+		}
+		cout<<"Case "<<caso<<": "<<t<<endl;
+	}
+	return 0;
+}
+*******

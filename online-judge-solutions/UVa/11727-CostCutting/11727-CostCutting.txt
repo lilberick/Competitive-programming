@@ -1,0 +1,17 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=2827
+*******Accepted:
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main(){
+	int T,a[4];
+	cin>>T;
+	for(int i=0;i<T;i++){
+		for(int j=0;j<3;j++){cin>>a[j];}		
+		sort(a,a+3);
+		cout<<"Case "<<i+1<<": "<<a[1]<<endl;
+	}
+	return 0;
+}
+*******
