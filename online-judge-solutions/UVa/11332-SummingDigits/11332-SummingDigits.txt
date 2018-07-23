@@ -1,0 +1,24 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2307
+*******Accepted:
+#include <iostream>
+#include <boost/lexical_cast.hpp>
+using namespace std;
+string suma_unDigito(string s){
+	while(s.size()>1){
+		int suma=0;
+		for(int i=0;i<s.size();i++){
+			suma=suma+(s[i]-48);
+		}
+		s=boost::lexical_cast<string>(suma);
+	}
+	return s;
+}
+int main(){
+	string a;
+	while(cin>>a && a!="0"){
+		cout<<suma_unDigito(a)<<endl;	
+	}
+	return 0;
+}
+*******
