@@ -1,0 +1,110 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1225
+*******Solucion:
+#include <iostream>
+using namespace std;
+char b[8][8];
+int p;
+int main(){
+	string a;
+	while(getline(cin,a)){
+		string c;
+		//cout<<"ubicaciones= "<<a<<endl;
+		for(int i=0;i<a.size();i++){
+			if(a[i]>48 && a[i]<58){for(int j=0;j<(a[i]-48);j++){c=c+a[i];}	
+			}else{c=c+a[i];}
+		}
+		p=0;
+		if(c.size()<71){c=c+"/88888888";}
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				if(c[p]!='/'){		
+					if(c[p]>48 && c[p]<58){b[i][j]='.';	
+					}else{b[i][j]=c[p];}
+				}else if(c[p]=='/'){
+					if(c[p+1]>48 && c[p+1]<58){b[i][j]='.';	
+					}else{b[i][j]=c[p+1];}
+					p++;
+				}
+				p++;
+			}
+		}
+		/*for(int i=0;i<8;i++){for(int j=0;j<8;j++){cout<<b[i][j];}
+			cout<<endl;
+		}*/	
+		//EMPIEZAN A JUGAR LAS PIEZAS
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				//PEON NEGRO
+				if(b[i][j]=='p'){
+					if(b[i+1][j-1]=='.' && (i+1)<8 && (j-1)>-1){b[i+1][j-1]='-';}
+					if(b[i+1][j+1]=='.' && (i+1)<8 && (j+1)<8){b[i+1][j+1]='-';}
+				}
+				//PEON BLANCO
+				if(b[i][j]=='P'){
+					if(b[i-1][j-1]=='.' && (i-1)>-1 && (j-1)>-1){b[i-1][j-1]='-';}
+					if(b[i-1][j+1]=='.' && (i-1)>-1 && (j+1)<8){b[i-1][j+1]='-';}
+				}
+				//CABALLOS
+				if(b[i][j]=='n' || b[i][j]=='N'){
+					if(b[i-1][j-2]=='.' && (i-1)>-1 && (j-2)>-1){b[i-1][j-2]='-';}			
+					if(b[i+1][j-2]=='.' && (i+1)<8 && (j-2)>-1){b[i+1][j-2]='-';}
+					if(b[i-2][j-1]=='.' && (i-2)>-1 && (j-1)>-1){b[i-2][j-1]='-';}
+					if(b[i+2][j-1]=='.' && (i+2)<8 && (j-1)>-1){b[i+2][j-1]='-';}
+					if(b[i-2][j+1]=='.' && (i-2)>-1 && (j+1)<8){b[i-2][j+1]='-';}
+					if(b[i+2][j+1]=='.' && (i+2)<8 && (j+1)<8){b[i+2][j+1]='-';}
+					if(b[i-1][j+2]=='.' && (i-1)>-1 && (j+2)<8){b[i-1][j+2]='-';}
+					if(b[i+1][j+2]=='.' && (i+1)<8 && (j+2)<8){b[i+1][j+2]='-';}
+				}
+				//REY
+				if(b[i][j]=='k' || b[i][j]=='K'){
+					for(int k=i-1;k<=i+1;k++){
+						for(int l=j-1;l<=j+1;l++){
+							if(b[k][l]=='.' && l>-1 && l<8 && k>-1 && k<8){b[k][l]='-';}
+						}
+					}
+				}
+				//ALFIL
+				if(b[i][j]=='b' || b[i][j]=='B'){
+					int w=1,x=1,y=1,z=1;
+					while((b[i-w][j-w]=='.' || b[i-w][j-w]=='-') && (i-w)>-1 && (j-w)>-1){b[i-w][j-w]='-';w++;}
+					while((b[i-x][j+x]=='.' || b[i-x][j+x]=='-') && (i-x)>-1 && (j+x)<8){b[i-x][j+x]='-';x++;}
+					while((b[i+y][j-y]=='.' || b[i+y][j-y]=='-') && (i+y)<8 && (j-y)>-1){b[i+y][j-y]='-';y++;}
+					while((b[i+z][j+z]=='.' || b[i+z][j+z]=='-') && (i+z)<8 && (j+z)<8){b[i+z][j+z]='-';z++;}
+				}
+				//TORRE
+				if(b[i][j]=='r' || b[i][j]=='R'){
+					int w=1,x=1,y=1,z=1;
+					while((b[i][j-w]=='.' || b[i][j-w]=='-') && (j-w)>-1){b[i][j-w]='-';w++;}
+					while((b[i-x][j]=='.' || b[i-x][j]=='-') && (i-x)>-1){b[i-x][j]='-';x++;}
+					while((b[i][j+y]=='.' || b[i][j+y]=='-') && (j+y)<8){b[i][j+y]='-';y++;}
+					while((b[i+z][j]=='.' || b[i+z][j]=='-') && (i+z)<8){b[i+z][j]='-';z++;}
+				}
+				//REYNA
+				if(b[i][j]=='q' || b[i][j]=='Q'){
+					int w=1,x=1,y=1,z=1;
+                                        while((b[i-w][j-w]=='.' || b[i-w][j-w]=='-') && (i-w)>-1 && (j-w)>-1){b[i-w][j-w]='-';w++;}
+                                        while((b[i-x][j+x]=='.' || b[i-x][j+x]=='-') && (i-x)>-1 && (j+x)<8){b[i-x][j+x]='-';x++;}
+                                        while((b[i+y][j-y]=='.' || b[i+y][j-y]=='-') && (i+y)<8 && (j-y)>-1){b[i+y][j-y]='-';y++;}
+                                        while((b[i+z][j+z]=='.' || b[i+z][j+z]=='-') && (i+z)<8 && (j+z)<8){b[i+z][j+z]='-';z++;}
+					w=1,x=1,y=1,z=1;
+					while((b[i][j-w]=='.' || b[i][j-w]=='-') && (j-w)>-1){b[i][j-w]='-';w++;}
+                                        while((b[i-x][j]=='.' || b[i-x][j]=='-') && (i-x)>-1){b[i-x][j]='-';x++;}
+                                        while((b[i][j+y]=='.' || b[i][j+y]=='-') && (j+y)<8){b[i][j+y]='-';y++;}
+                                        while((b[i+z][j]=='.' || b[i+z][j]=='-') && (i+z)<8){b[i+z][j]='-';z++;}
+				} 
+			}
+		}
+		int omaiga=0;
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				//cout<<b[i][j];//Descomentar para visualizar todas las piezas del tablero y piezas no atacadas
+				if(b[i][j]=='.'){omaiga++;}
+			}
+			//cout<<endl;
+		}
+		cout<<omaiga<<endl;
+	}
+	return 0;
+}
+*******

@@ -1,0 +1,86 @@
+*******Link del problema
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=36
+*******Solucin1:(Accepted)
+#include <iostream>
+using namespace std;
+long long i,j,respuesta;
+
+long long opera(long long x){
+    long long contador=1;
+    if(x==1){
+        contador=1;
+        goto final2;
+    }
+    otabe:if(x%2 != 0){
+        x=3*x + 1;
+    }else{x=x/2;}
+    if(x<=1){
+        goto final;
+    }else{
+        contador++;
+        goto otabe;
+    }
+    final:return contador + 1;
+    final2:return contador;
+}
+int main() {
+    while(cin>>i>>j){
+    //cin>>i>>j;
+    cout<<i<<" "<<j<<" ";
+    if(i>j){
+        int aux=i;
+        i=j;
+        j=aux;
+    }
+    for(int n=i;n<=j;n++)
+    {
+        if(respuesta<=opera(n)){
+            respuesta=opera(n);
+        }
+    }
+    cout<<respuesta<<endl;
+    respuesta=0;
+    }
+	return 0;
+}
+*******Solucion2:(Accepted)
+#include<iostream>
+#include<algorithm>
+int a,b,p,mayores,menores;
+using namespace std;
+int hailstone(int b);
+int main(){
+	while(cin>>a>>b){
+	int mayor=0;
+	mayores=b,menores=a;
+	if(b<a){
+		mayores=a;
+		menores=b;
+	}		
+	for(int i=menores;i<=mayores;i++){
+		if(mayor<hailstone(i)) mayor=hailstone(i);	
+	}
+	cout<<a<<" "<<b<<" "<<mayor+1<<endl;
+	}
+}
+int hailstone(int b){
+	p=0;
+	wi:if(b!=1){	
+     		if(b%2!=0) b=3*b+1;
+		else b=b/2;
+		p++;	
+	goto wi;
+	}		
+	return p;
+}
+*******
+
+
+
+
+
+
+
+
+
+

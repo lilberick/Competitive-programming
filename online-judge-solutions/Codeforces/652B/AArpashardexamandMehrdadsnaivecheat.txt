@@ -1,0 +1,71 @@
+*******link del problema
+http://codeforces.com/problemset/problem/652/B
+*******
+#include <iostream>
+using namespace std;
+int numero_elementos;
+int arreglo[1000],postizo_par,postizo_impar;
+int main() {
+	cin>>numero_elementos;
+	
+	for(int i=1;i<=numero_elementos;i++){
+        cin>>arreglo[i];
+	}
+	
+	    for(int i=1;i<=numero_elementos;i++){
+	        if(i%2==0){
+	            if(arreglo[i]<arreglo[i-1]){
+	                postizo_par=arreglo[i];
+	                arreglo[i]=arreglo[i-1];
+	                arreglo[i-1]=postizo_par;
+	                 }
+	        }else if(i%2!=0 && i>1){
+	            if(arreglo[i]>arreglo[i-1]){
+	                postizo_impar=arreglo[i];
+	                arreglo[i]=arreglo[i-1];
+	                arreglo[i-1]=postizo_impar;
+	            }
+	        }
+	    }
+	    
+		for(int i=1;i<=numero_elementos;i++){
+        cout<<arreglo[i]<<" ";
+	    }
+	
+	return 0;
+}
+*******
+#include <iostream>
+int c,n;
+int A[1000];
+using namespace std;
+
+int main() {
+	cin>>n;
+	for(int j=0;j<n;j++){
+	    cin>>A[j];
+	}
+	
+	for(int i=0;i<n;i++){
+	    if(i%2 != 0){
+	            if(A[i]<A[i-1]){
+	                c=A[i-1];
+	                A[i-1]=A[i];
+	                A[i]=c;
+	            }
+	        }else if((i%2 == 0) && (i!=0)){
+	            if(A[i]>A[i-1]){
+	                c=A[i-1];
+	                A[i-1]=A[i];
+	                A[i]=c;	
+	            }
+	        }
+	    }
+	
+	for(int k=0;k<n;k++){
+	    cout<<A[k]<<" ";
+	}
+	return 0;
+}
+*******
+

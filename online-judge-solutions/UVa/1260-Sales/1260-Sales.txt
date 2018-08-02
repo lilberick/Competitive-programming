@@ -1,0 +1,44 @@
+*******Link del problema
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3701
+*******
+Sample Input
+2
+5
+38  111  102  111  177
+8
+276  284  103  439  452  276  452  398
+Sample Output
+9
+2
+*******ACCEPTED
+#include <iostream>
+int N,bucle,A[1000000],B[1000000],suma,t,n;
+using namespace std;
+
+int main() {
+	cin>>N;
+	while(bucle<N){
+	    cin>>n;
+	    for(int i=0;i<n;i++){
+	        cin>>A[i];
+	    }
+	    for(int j=1;j<n;j++){
+	        for(int i=0;i<j;i++){
+	            if(A[j]>=A[i]){
+	                t++;
+	            }
+	        }
+	        B[j]=t;
+	        t=0;
+	    }
+	    for(int i=1;i<n;i++){
+	        suma=suma+B[i];
+	    }
+	    cout<<suma<<endl;
+	    suma=0,t=0;
+	    bucle++;
+	}
+	return 0;
+}
+*******
+

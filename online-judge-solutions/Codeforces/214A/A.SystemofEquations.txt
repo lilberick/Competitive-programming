@@ -1,0 +1,29 @@
+*******Link del problema
+http://codeforces.com/problemset/problem/214/A
+*******ACCEPTED
+#include <iostream>
+#include <math.h>
+int n,m,a,b,casos;
+using namespace std;
+
+int main() {
+	cin>>n>>m;
+	for(int i=0;i<=m;i++){
+	    if(sqrt(m-i)+pow(i,2)==n){
+	        a++;
+	    }
+	}
+	for(int i=0;i<=n;i++){
+	    if(sqrt(n-i)+pow(i,2) == m){
+	        b++;
+	    }
+	}
+	//casos=a*b;
+	if(a>0 && b>0){
+	    casos=a;
+	}
+	cout<<casos<<endl;
+	return 0;
+}
+*******
+

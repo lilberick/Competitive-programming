@@ -1,0 +1,67 @@
+*******Link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3678
+*******Ejemplo de Input
+1
+4
+HONDA 10000 45000
+PEUGEOT 12000 44000
+BMW 30000 75900
+CHEVROLET 7000 37000
+4
+60000
+7500
+5000
+10000
+*******ACCEPTED
+#include <iostream>
+#include <vector>
+#include <string>
+int D,L[1000000],H[1000000],Q,P[1000000],t,N,bucle;
+
+using namespace std;
+string Name[1000000],Rpta[1000000];
+int main() {
+    cin>>N;
+    while(bucle<N){
+    cin>>D;
+	for(int i=0;i<D;i++){
+	    cin>>Name[i]>>L[i]>>H[i];
+	}
+	cin>>Q;
+	for(int i=0;i<Q;i++){
+	    cin>>P[i];
+	}
+	for(int i=0;i<Q;i++){
+	    Rpta[i]="UNDETERMINED";
+	}
+	for(int j=0;j<Q;j++){
+	    for(int i=0;i<D;i++){
+	        if(L[i]<=P[j] && P[j]<=H[i]){
+	            Rpta[j]=Name[i];
+	            t++;
+	            //cout<<"valor de t="<<t<<endl;
+	        }
+	    }
+	      //cout<<"valor de t="<<t<<endl;
+	      	    if(t>1){
+	                Rpta[j]="UNDETERMINED";
+
+	            }
+	      t=0;
+	}
+
+	for(int i=0;i<Q;i++){
+	    cout<<Rpta[i]<<endl;
+	}
+	if(bucle<N-1){
+	cout<<endl;
+	}
+	bucle++;
+	
+	
+    }
+	return 0;
+}
+*******
+
+

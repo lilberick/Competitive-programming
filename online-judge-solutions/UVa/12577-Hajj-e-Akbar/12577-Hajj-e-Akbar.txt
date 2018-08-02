@@ -1,0 +1,16 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3834
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int t=0;
+	string s;
+	while(cin>>s && s!="*"){
+		t++;
+		if(s=="Hajj"){cout<<"Case "<<t<<": "<<"Hajj-e-Akbar"<<endl;}
+		if(s=="Umrah"){cout<<"Case "<<t<<": "<<"Hajj-e-Asghar"<<endl;}
+	}
+	return 0;
+}
+*******

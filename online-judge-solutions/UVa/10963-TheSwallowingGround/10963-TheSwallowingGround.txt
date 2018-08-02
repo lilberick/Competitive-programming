@@ -1,0 +1,23 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1904
+*******Accepted:
+#include <iostream>
+int cases,W,a,b;
+using namespace std;
+int main(){
+	cin>>cases;
+	while(cases--){
+		cin>>W;
+		int diferencia[W],t=1;
+		for(int i=0;i<W;i++){
+			cin>>a>>b;
+			diferencia[i]=a-b;	
+			if(diferencia[i]!=diferencia[0]){t=0;}
+		}
+		if(t){cout<<"yes"<<endl;}
+		else{cout<<"no"<<endl;}
+		if(cases) cout<<endl;
+	}
+	return 0;
+}
+*******

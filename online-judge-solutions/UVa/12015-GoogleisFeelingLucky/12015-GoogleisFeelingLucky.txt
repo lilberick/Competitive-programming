@@ -1,0 +1,25 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3166
+*******Accepted:
+#include <iostream>
+using namespace std;
+int Mayor(int x,int y){return x^((x^y) & -(x<y));}
+int main(){
+	int T,V[11],mayor;
+	string s[11];
+	cin>>T;
+	for(int j=0;j<T;j++){
+		cout<<"Case #"<<j+1<<":"<<endl;
+		mayor=-1;
+		for(int i=0;i<10;i++){
+			cin>>s[i]>>V[i];
+			mayor=Mayor(V[i],mayor);
+		}
+		for(int i=0;i<10;i++){
+			if(V[i]==mayor){cout<<s[i]<<endl;}
+		}
+	}
+	return 0;
+}
+*******
+

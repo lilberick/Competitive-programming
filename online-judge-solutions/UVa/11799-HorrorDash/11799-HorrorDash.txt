@@ -1,0 +1,24 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2899
+*******Accepted:
+#include <iostream>
+#include <limits>
+int T,t;
+using namespace std;
+int Maximo(int x,int y){return x^((x^y) & -(x<y));}
+int main(){
+	cin>>T;
+	while(t<T){
+		t++;
+		int N,a,maximo=numeric_limits<int>::min();
+		cin>>N;
+		for(int i=0;i<N;i++){
+			cin>>a;
+			maximo=Maximo(maximo,a);
+		}	
+		cout<<"Case "<<t<<": "<<maximo<<endl;
+	}	
+	return 0;
+}
+*******
+

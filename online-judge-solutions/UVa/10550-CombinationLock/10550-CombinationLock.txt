@@ -1,0 +1,36 @@
+*******Link del problema
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1491
+*******udebug
+https://www.udebug.com/UVa/10550
+*******Solucion:
+//Seguir la idea de calcular la hora en un reloj jeje
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main() {
+	int a,b,c,d,n,p,resultado;
+	while(cin>>a>>b>>c>>d){
+	    if(a==0 && b==0 && c==0 && d==0)goto final;
+	    //Primer paso: HORARIO
+	    if(a>b)n=a-b;
+	    else if(a<b)n=(a+ 40)-b;
+	    else if(a==b)n=0;
+	    p=n*(360/40);
+	    resultado=720+p;
+	    //Segundo paso: ANTI-HORARIO
+	    if(b>c)n=(c+ 40)-b;
+	    else if(b<c)n=c-b;
+	    else if(b==c)n=0;
+	    p=(n)*(360/40);
+	    resultado=resultado+ 360+p;
+	    //Tercer paso: HORARIO
+	    if(c>d)n=c-d;
+	    else if(c<d)n=(c+ 40)-d;
+	    else if(c==d)n=0;
+	    p=(n)*(360/40);
+	    resultado=resultado+p;
+	    cout<<resultado<<endl;
+	}
+	final:return 0;
+}
+*******

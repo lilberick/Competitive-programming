@@ -1,0 +1,47 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1055
+*******Accepted:
+#include <iostream>
+#include <vector>
+int meses,b,nd;
+float p,pre,a;
+using namespace std;
+//p=pago inicial
+//pre=prestamo
+//nd=numero de tasa de depreciacion
+//td=tasa de depreciacion
+//ppm=pago por mes
+int main(){
+	while(cin>>meses>>p>>pre>>nd && meses>-1){
+		vector<float> td,tdi;
+		vector<int> mesi,mes;
+		for(int i=0;i<nd;i++){
+			cin>>b>>a;
+			mesi.push_back(b);
+			tdi.push_back(a);
+		}
+		float tdmientras;
+		int t=0;
+		for(int i=0;i<meses;i++){if(i>mesi.size()){mesi.push_back(0);}}
+		for(int i=0;i<meses;i++){
+			if(i==mesi[t]){
+				tdmientras=tdi[t];
+				td.push_back(tdmientras);
+				t++;
+			}else{td.push_back(tdmientras);}
+		}
+		float ValorAutomovil=(p+pre),Debe=pre,ppm=pre/(meses*1.0);
+		bool terminadopapu=false;
+		int contandomeses=0;
+		for(int i=0;i<td.size() && terminadopapu==false;i++){
+			ValorAutomovil=ValorAutomovil*(1-td[i]);
+			Debe=pre-ppm*i;
+			if(ValorAutomovil>Debe){terminadopapu=true;}
+			else{contandomeses++;}
+		}
+		if(contandomeses==1){cout<<contandomeses<<" month"<<endl;}
+		else{cout<<contandomeses<<" months"<<endl;}
+	}
+	return 0;
+}
+*******

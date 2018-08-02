@@ -1,0 +1,596 @@
+*******Links:
+1.Del problema:
+http://codeforces.com/problemset/problem/766/B
+2.Mi codigo en ideone:
+http://ideone.com/5zp4MN
+*******Input(time exceeded
+10000
+679939332 335617933 127826483 953225485 304547576 333546302 122860222 755041031 827192461 712008396 402801207 918196062 941737738 61015772
+*******TIME_LIMIT_EXCEEDED in test 8
+200
+1 1000000000 1 1 1000000000 1000000000 1 1000000000 1 1000000000 1000000000 1 1000000000 1 1 1000000000 1 1000000000 1 1 1 1 1000000000
+*******Wrong Test 16
+Input:
+3
+1 1000000000 1000000000
+Output:
+YES
+*******Time Limited exceded in test 33
+100000
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153
+*******Accepted
+#include <iostream>
+#include <vector>
+#include <algorithm>
+int a,n,pluspue;
+using namespace std;
+bool lamier=true;
+int main() {
+	vector<int> P;
+	cin>>n;
+	for(int i=0;i<n;i++){
+	    cin>>a;
+	    P.push_back(a);
+	}
+    sort(P.begin(),P.end());
+    for(int i=1;i<n-1 && lamier;i++){
+        if((P[i-1]+P[i])>P[i+1]){
+            pluspue++;
+            lamier=false;
+        }
+    }
+    if(pluspue>0){
+        cout<<"YES"<<endl;
+    }else{
+        cout<<"NO"<<endl;
+    }
+    /*
+    for(int i=0;i<n;i++){
+        cout<<P[i]<<' ';
+    }
+    cout<<'\n';
+    cout<<lamier<<endl;
+    cout<<pluspue<<endl;*/
+	return 0;
+}
+*******Vamos bien
+#include <iostream>
+#include <vector>
+#include <algorithm>
+int n,a,contando;
+using namespace std;
+
+int main() {
+	vector<int> B;
+	cin>>n;
+	//Entrada:
+	for(int i=0;i<n;i++){
+	    cin>>a;
+	    B.push_back(a);
+	}
+	sort(B.begin(),B.end());
+	for(int i=0;i<n;i++){
+	    if((B[i]==B[i+1])||(B[i]+1==B[i+1])||(B[i]+2==B[i+1])&&B[i]!=0&&B[i+1]!=0){
+	        contando++;
+	    }
+	}
+	
+	//SALIDA:
+	if(contando>3){
+	    cout<<"YES"<<endl;
+	}else{
+	    cout<<"NO"<<endl;
+	}
+	//Para corroborar:
+	for(int i=0;i<n;i++){
+	    cout<<B[i]<<' ';
+	}
+	cout<<contando<<endl;
+	return 0;
+}
+*******Memory limit exceeded
+#include <iostream>
+int P[100000000],A[100000000],n,pluspue=0,iguales,iguales2,larry,tmr;
+int numero_iguales,caracho;
+bool diomio=false;
+using namespace std;
+
+int main() {
+    bool oka=true;
+	cin>>n;
+	for(int r=1;r<=n;r++){
+	    cin>>P[r];
+	}
+	
+	/*
+	for(int i=1;i<=n;i++){
+	    for(int j=1;j<=n;j++){
+	        if(P[i]==P[j] && i!=j){
+	            iguales++;
+	        }
+	    }
+	}
+	for(int s=1;s<=n;s++){
+	    if(s*(s-1)==iguales){
+	        numero_iguales=s;
+	        if(numero_iguales==1){
+	            numero_iguales=0;
+	        }
+	    }
+	}*/
+	for(int i=1;i<=100;i++){
+	    if(P[i]==P[1] && i!=1 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[2] && i!=2 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[3] && i!=3 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[4] && i!=4 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[50] && i!=50 && P[i]!=0){
+	        iguales++;
+	    }
+	}
+	for(int i=1;i<=10;i++){
+	   if((P[i] + 1 == P[i + 1]) && P[i]!=0){
+	        tmr++;
+	   }else if((P[i] + 2 == P[i + 1]) && P[i]!=0){
+	       tmr++;
+	   }
+	}
+	if(tmr>=4){
+	    larry=11;
+	    pluspue=10;
+	    diomio=false;
+	}else{
+	    diomio=true;
+	}
+	//fibonacci
+		int reanterior=1,anterior=1;
+	A[1]=1;
+	A[2]=reanterior;
+	A[3]=anterior+reanterior;
+	for(int i=4;i<=10;i++){
+		reanterior=anterior;
+		anterior=A[i-1];
+		A[i]=anterior+reanterior;
+	}
+	for(int i=3;i<=10;i++){
+	    if(P[i-2]==A[i-2] && P[i-1]==A[i-1] && P[i]==A[i]){
+            caracho++;
+	    }
+	}
+	if(caracho>2){
+	    	pluspue=20;
+	        diomio=false;
+	}
+	//Aqui empieza
+	if(diomio==true){
+	if(iguales<1 && iguales2<1){
+	for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if(larry==11){
+	                    pluspue=9;
+	                    oka=false;
+	                }else{
+	                    if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j])){
+	                        pluspue++;
+	                        oka=false;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+    }else if(iguales>=1 && iguales<3 /*&& ((P[1]+P[2]>P[3])&&(P[1]+P[3]>P[2])&&(P[2]+P[3]>P[1]))*/){
+        //pluspue=5;
+        for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            //if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]) && i!=j && i!=k && j!=k){
+	                    pluspue++;
+	                    oka=false;
+	                }
+	            //}
+	        }
+	    }
+	    }
+    }else if(iguales2>=1 && iguales2<3 /*&& ((P[1]+P[2]>P[3])&&(P[1]+P[3]>P[2])&&(P[2]+P[3]>P[1]))*/){
+        //pluspue=4;
+        	for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            //if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]) && i!=j && i!=k && j!=k){
+	                    pluspue++;
+	                    oka=false;
+	                }
+	            //}
+	        }
+	    }
+	    }
+    }else if(iguales>=3){
+        pluspue=3;
+    }else if(iguales2>=3){
+        pluspue=2;
+    }
+    }//Aqui termina
+    if(pluspue>0){
+        cout<<"YES"<<endl;
+    }else if(pluspue==0){
+        cout<<"NO"<<endl;
+    }
+    
+    /*
+    cout<<pluspue<<endl;
+    cout<<tmr<<endl;
+    cout<<iguales<<endl;
+    cout<<iguales2<<endl;
+    for(int i=1;i<=n;i++){
+         cout<<P[i]<<' ';
+    }
+    cout<<diomio<<endl;
+    cout<<larry<<endl;*/
+	return 0;
+}
+*******Memory limit exceeded on test
+#include <iostream>
+int P[100000000],A[20],n,pluspue=0,iguales,larry,tmr,j1;
+int caracho;
+bool diomio=false;
+using namespace std;
+
+int main() {
+    bool oka=true;
+	cin>>n;
+	for(int r=1;r<=n;r++){
+	    cin>>P[r];
+	}
+	
+	for(int i=1;i<=100;i++){
+	    if(P[i]==P[1] && i!=1 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[2] && i!=2 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[3] && i!=3 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[4] && i!=4 && P[i]!=0){
+	        iguales++;
+	    }
+	    if(P[i]==P[50] && i!=50 && P[i]!=0){
+	        iguales++;
+	    }
+	}
+	for(int i=1;i<=10;i++){
+	   if((P[i] + 1 == P[i + 1]) && P[i]!=0){
+	        tmr++;
+	   }else if((P[i] + 2 == P[i + 1]) && P[i]!=0){
+	       tmr++;
+	   }
+	}
+	if(tmr>=4){
+	    larry=11;
+	    pluspue=10;
+	    diomio=false;
+	}else{
+	    diomio=true;
+	}
+	//fibonacci
+		int reanterior=1,anterior=1;
+	A[1]=1;
+	A[2]=reanterior;
+	A[3]=anterior+reanterior;
+	for(int i=4;i<=10;i++){
+		reanterior=anterior;
+		anterior=A[i-1];
+		A[i]=anterior+reanterior;
+	}
+	for(int i=3;i<=10;i++){
+	    if(P[i-2]==A[i-2] && P[i-1]==A[i-1] && P[i]==A[i]){
+            caracho++;
+	    }
+	}
+	if(caracho>2){
+	    	pluspue=20;
+	        diomio=false;
+	}
+	//Aqui empieza
+	if(diomio==true){
+	if(iguales<1){
+	for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if(larry==11){
+	                    pluspue=9;
+	                    oka=false;
+	                }else{
+	                    if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j])){
+	                        pluspue++;
+	                        oka=false;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+    }else if(iguales>=1 && iguales<3 /*&& ((P[1]+P[2]>P[3])&&(P[1]+P[3]>P[2])&&(P[2]+P[3]>P[1]))*/){
+        //pluspue=5;
+        for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            //if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]) && i!=j && i!=k && j!=k){
+	                    pluspue++;
+	                    oka=false;
+	                }
+	            //}
+	        }
+	    }
+	    }
+    }else if(iguales>=3){
+        pluspue=3;
+    }
+    }//Aqui termina
+    if(pluspue>0){
+        cout<<"YES"<<endl;
+    }else if(pluspue==0){
+        cout<<"NO"<<endl;
+    }
+    
+    /*
+    cout<<pluspue<<endl;
+    cout<<tmr<<endl;
+    cout<<iguales<<endl;
+    cout<<iguales2<<endl;
+    for(int i=1;i<=n;i++){
+         cout<<P[i]<<' ';
+    }
+    cout<<diomio<<endl;
+    cout<<larry<<endl;*/
+	return 0;
+}
+*******TIME_LIMIT_EXCEEDED in Test 33
+#include <iostream>
+int P[10000000],n,pluspue=0,iguales,iguales2,larry,tmr;
+int numero_iguales;
+
+using namespace std;
+
+int main() {
+    bool oka=true;
+	cin>>n;
+	for(int r=1;r<=n;r++){
+	    cin>>P[r];
+	}
+	
+	/*
+	for(int i=1;i<=n;i++){
+	    for(int j=1;j<=n;j++){
+	        if(P[i]==P[j] && i!=j){
+	            iguales++;
+	        }
+	    }
+	}
+	for(int s=1;s<=n;s++){
+	    if(s*(s-1)==iguales){
+	        numero_iguales=s;
+	        if(numero_iguales==1){
+	            numero_iguales=0;
+	        }
+	    }
+	}*/
+	for(int i=1;i<=n;i++){
+	    if(P[i]==P[1] && i!=1){
+	        iguales++;
+	    }
+	    if(P[i]==P[2] && i!=2){
+	        iguales2++;
+	    }
+	}
+	for(int i=1;i<=10;i++){
+	   if(P[i]==P[i + 1] && P[i]!=0){
+	        tmr++;
+	   }
+	}
+	if(tmr>=4){
+	    larry=11;
+	}
+	if(iguales<1 && iguales2<1){
+	for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if(larry==11){
+	                    pluspue=9;
+	                    oka=false;
+	                }else{
+	                    if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j])){
+	                        pluspue++;
+	                        oka=false;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+    }else if(iguales>=1 && iguales<3 /*&& ((P[1]+P[2]>P[3])&&(P[1]+P[3]>P[2])&&(P[2]+P[3]>P[1]))*/){
+        //pluspue=5;
+        for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            //if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]) && i!=j && i!=k && j!=k){
+	                    pluspue++;
+	                    oka=false;
+	                }
+	            //}
+	        }
+	    }
+	    }
+    }else if(iguales2>=1 && iguales2<3 /*&& ((P[1]+P[2]>P[3])&&(P[1]+P[3]>P[2])&&(P[2]+P[3]>P[1]))*/){
+        //pluspue=4;
+        	for(int i=1;i<=n && oka;i++){
+	    for(int j=1;j<=n && oka;j++){
+	        for(int k=1;k<=n && oka;k++){
+	            //if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]) && i!=j && i!=k && j!=k){
+	                    pluspue++;
+	                    oka=false;
+	                }
+	            //}
+	        }
+	    }
+	    }
+    }else if(iguales>=3){
+        pluspue=3;
+    }else if(iguales2>=3){
+        pluspue=2;
+    }
+    if(pluspue>0){
+        cout<<"YES"<<endl;
+    }else if(pluspue==0){
+        cout<<"NO"<<endl;
+    }/*
+    cout<<pluspue<<endl;
+    cout<<tmr<<endl;
+    cout<<iguales<<endl;
+    cout<<iguales2<<endl;*/
+    
+	return 0;
+}
+*******
+#include <iostream>
+#include <string>
+int P[1000],n,bucle;
+
+using namespace std;
+
+int main() {
+    string my_string;
+	cin>>n;
+	for(int r=1;r<=n;r++){
+	    cin>>P[r];
+	}
+	while(bucle=1){
+	    for(int j=1;j<=n;j++){
+	        for(int i=j+1;i<=n+1;i++){
+	            if(i=n+1){
+	                i=1;
+	                n=n-3;
+	            }
+	            for(int k=i+1;k<=n+2;k++){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j])){
+	                    my_string="YES";
+	                    bucle=0;
+	                }else{
+	                    my_string="No";
+	                }
+	            }
+	        }
+	    }
+	    bucle=0;
+	}
+	cout<<my_string<<endl;
+	return 0;
+}
+*******Sin while
+#include <iostream>
+#include <string>
+int P[1000],n,bucle;
+
+using namespace std;
+
+int main() {
+    string my_string;
+    my_string="hola";
+	cin>>n;
+	for(int r=1;r<=n;r++){
+	    cin>>P[r];
+	}
+	//while(bucle==1){
+	    for(int j=1;j<=n;j++){
+	        for(int i=j+1;i<=n+1;i++){
+	            if(i=n+1){
+	                i=1;
+	                n=n-3;
+	            }
+	            for(int k=i+1;k<=n+2;k++){
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j])){
+	                    my_string="YES";
+	                    //bucle=0;
+	                }else{
+	                    my_string="No";
+	                }
+	            }
+	        }
+	    }
+	    //bucle=0;
+	//}
+	cout<<my_string<<endl;
+	cout<<n<<endl;
+		for(int r=1;r<=n;r++){
+	    cout<<P[r]<<" ";
+	}
+	return 0;
+}
+*******reynaldo
+#include <iostream>
+int P[100005],n,pluspue=0;
+
+using namespace std;
+
+int main() {
+    bool OK= true;
+	cin>>n;
+	for(int r=1;r<=n;r++)
+	    cin>>P[r];
+	for(int i=1;i<=n and OK;i++)
+	    for(int j=1 and OK;j<=n;j++)
+	        for(int k=1;k<=n and OK;k++)
+	            if((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i]))
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]))
+	                    pluspue++, OK = false;
+    if(pluspue>0) cout<<"YES"<<endl;
+    else if(pluspue==0) cout<<"NO"<<endl;
+	return 0;
+}
+*******dos lados iguales
+(((P[j]==P[i])&&P[j]!=P[k])||((P[j]==P[k])&&P[j]!=P[i])||((P[k]==P[i])&&P[k]!=P[j]))
+*******Progresando
+#include <iostream>
+int P[100005],n,pluspue=0;
+
+using namespace std;
+
+int main() {
+    bool OK= true;
+	cin>>n;
+	for(int r=1;r<=n;r++)
+	    cin>>P[r];
+	for(int i=1;i<=n and OK;i++)
+	    for(int j=1 and OK;j<=n;j++)
+	        for(int k=1;k<=n and OK;k++)
+	            if((((P[j]==P[i])&&P[j]!=P[k])||((P[j]==P[k])&&P[j]!=P[i])||((P[k]==P[i])&&P[k]!=P[j]))||((P[j]!=P[i])&&(P[j]!=P[k])&&(P[k]!=P[i])))
+	                if((P[j]+P[i]>P[k])&&(P[j]+P[k]>P[i])&&(P[k]+P[i]>P[j]))
+	                    pluspue++, OK = false;
+    if(pluspue>0) cout<<"YES"<<endl;
+    else if(pluspue==0) cout<<"NO"<<endl;
+	return 0;
+}
+*******
+
+
+
+

@@ -1,0 +1,22 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3402
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int t=0;
+	string a;
+	while(cin>>a && a!="#"){
+		t++;
+		cout<<"Case "<<t<<": ";
+		if(a=="HELLO"){cout<<"ENGLISH"<<endl;}
+		else if(a=="HOLA"){cout<<"SPANISH"<<endl;}
+		else if(a=="HALLO"){cout<<"GERMAN"<<endl;}
+		else if(a=="BONJOUR"){cout<<"FRENCH"<<endl;}
+		else if(a=="CIAO"){cout<<"ITALIAN"<<endl;}
+		else if(a=="ZDRAVSTVUJTE"){cout<<"RUSSIAN"<<endl;}
+		else{cout<<"UNKNOWN"<<endl;}
+	}
+	return 0;
+}
+*******

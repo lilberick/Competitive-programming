@@ -1,0 +1,32 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=637
+*******Solucion
+#include <iostream>
+using namespace std;
+int N,M,cabashito,a,b,c,d,e,f;
+int main(){
+	while(cin>>N>>M && (N!=0 || M!=0)){
+	if(N==0 || M==0){cabashito=0;}
+	else if(N==1 && M!=0){cabashito=M;}
+	else if(M==1 && N!=0){cabashito=N;}
+	else if((N==2 || M==2) && (N!=1 && M!=1)){
+		if(N==2){e=M;}
+		else if(M==2){e=N;}
+		f=e%4;
+		if(f==0){cabashito=e;}
+		else if(f==1){cabashito=e+1;}
+		else if(f==2){cabashito=e+2;}
+		else if(f==3){cabashito=e+1;}
+	}else if(N!=1 && M!=1 && N!=2 && M!=2 && (N!=0 && M!=0)){
+		if(M%2==0){a=M/2;c=M/2;}
+		else if(M%2!=0){a=(M+1)/2;c=(M-1)/2;}
+		if(N%2==0){b=N/2;d=N/2;}
+		else if(N%2!=0){b=(N+1)/2;d=(N-1)/2;}
+		cabashito=a*b+c*d;
+	}
+	cout<<cabashito<<" knights may be placed on a "<<N<<" row "<<M<<" column board."<<endl;
+	}	
+	return 0;
+}
+*******
+

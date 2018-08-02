@@ -1,0 +1,52 @@
+*******Link del problema
+http://codeforces.com/problemset/problem/17/A
+*******ACCEPTED
+#include <iostream>
+int A[1000000],B[1000000],C[1000000],n,k,p=1,t,q,r;
+using namespace std;
+
+int main() {
+    A[0]=2;
+	cin>>n>>k;
+	for(int j=3;j<=n;j++){
+	    for(int i=2;i<j;i++){
+	        if(j%i == 0){
+	            t++;
+	        }
+	    }
+	    if(t==0){
+	        A[p]=j;
+	        p++;
+	    }
+	    t=0;
+	}
+	for(int i=0;i<p-1;i++){
+	    B[i]=A[i]+A[i+1]+1;
+	}
+	for(int j=0;j<=p-2;j++){
+	    for(int i=2;i<B[j];i++){
+	        if(B[j]%i == 0){
+	            t++;
+	        }
+	    }
+	    if(t==0){
+	        C[q]=B[j];
+	        q++;
+	    }
+	    t=0;
+	}
+
+	for(int i=0;i<q;i++){
+	    if(C[i]<=A[p-1]){
+	        r++;
+	    }
+	}
+	if(r<k){
+	    cout<<"NO"<<endl;
+	}else{
+	    cout<<"YES"<<endl;
+	}
+	return 0;
+}
+*******
+

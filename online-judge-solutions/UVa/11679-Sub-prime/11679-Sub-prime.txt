@@ -1,0 +1,47 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2726
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int B,N;
+	while(cin>>B>>N && (B!=0 && N!=0)){
+		int r[22],banco[22],a,b,c;		
+		for(int i=1;i<=B;i++){cin>>r[i];banco[i]=0;}
+		for(int i=1;i<=N;i++){
+			cin>>a>>b>>c;
+			banco[a]=banco[a]-c;
+			banco[b]=banco[b]+c;
+		}
+		int t=0;
+		for(int i=1;i<=B;i++){
+			if(banco[i]+r[i]<0){t++;}
+		}
+		if(t>0){cout<<"N"<<endl;}
+		else{cout<<"S"<<endl;}
+	}
+	return 0;
+}
+*******Explicacion:
+1.Evaluamos:
+  3 3   //B=3(Numero de bancos) N=(Numero de Pago/Deuda)
+  1 1 1 //Reserva de los bancos: r[B=1],r[B=2],r[B=3]
+  1 2 1 (banco[1]-1) (banco[2]+1) N=1
+  2 3 2 (banco[2]-2) (banco[3]+2) N=2
+  3 1 3 (banco[3]-3) (banco[1]+3) N=3
+2.El saldo del banco+Reserva>=0 o sino el sistema colapsa
+  //Todos los bancos deben cumplir eso
+  banco[1]+r[1]>=0	
+  banco[2]+r[2]>=0	
+	.	
+	.
+	.
+  banco[B]+r[B]>=0
+3.De nuestro ejemplo todos los bancos no colapsan
+  2+1=3
+  1+1=0
+  -1+1=0
+4.Si por lo menos algun banco colapsa: N
+  Si todos los bancos no colapsan: S
+5.Se deja de leer el input cuando: S=0 y N=0
+*******

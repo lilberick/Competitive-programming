@@ -1,0 +1,73 @@
+*******Link del problema
+http://codeforces.com/problemset/problem/743/A
+*******Accepted
+#include <iostream>
+#include <cstdio>
+int n,a,b,precio;
+int P[1000000];
+using namespace std;
+
+int main() {
+	cin>>n>>a>>b;
+	for(int i=1;i<=n;i++){
+	    scanf("%1d",&P[i]);
+	}
+	if(P[b]==P[a]){
+	    precio=0;
+	}else if(P[b] != P[a]){
+        precio=1;
+	}
+	cout<<precio<<endl;
+	return 0;
+}
+*******wrong
+#include <iostream>
+//#include <string>
+#include <stdlib.h>
+#include <cstdio>
+int n,a,b,precio,mov,larry;
+int P[1000];
+using namespace std;
+
+int main() {
+	cin>>n>>a>>b;
+	//scanf("%d\n",&n);
+	for(int i=1;i<=10;i++){
+	    scanf("%1d",&P[i]);
+	}
+	
+	if(P[b]==P[a]){
+	    precio=0;
+	}else if(P[b] != P[a]){
+	    if(a>b){
+	        mov=a;
+	        larry=1;
+	        while((larry==1) && (mov>=b)){
+	            precio = abs(mov-a);
+	            if(P[mov]==P[b]){
+	                larry=0;
+	            }
+	            mov--;
+	        }
+	    }else if(a<b){
+	        mov=a;
+	        larry=1;
+	        while((larry==1)&&(mov<=b)){
+	            precio = abs(mov-a);
+	            if(P[mov]==P[b]){
+	                larry=0;
+	            }
+	            mov++;
+	        }
+	    }
+	}
+	cout<<precio<<endl;
+	    /*
+		for(int i=1;i<=n;i++){
+	        printf("%1d\n",P[i]);
+	    }*/
+	    
+	return 0;
+}
+*******
+
