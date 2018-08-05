@@ -1,0 +1,42 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=602
+*******Accepted:
+#include <iostream>
+using namespace std;
+int Mayor(int x,int y){return x^((x^y) & -(x<y));}
+int main(){
+	int n,m,c,a,t=0;
+	while(cin>>n>>m>>c && (n || m || c)){
+		if(t>0){cout<<endl;}
+		int cambia[n+1],consumo[n+1],co[n+1],total[m+1];
+		for(int i=0;i<n;i++){
+			cin>>co[i];
+			cambia[i]=0;
+			consumo[i]=0;
+		}
+		for(int i=0;i<m;i++){
+			total[i]=0;
+			cin>>a;
+			cambia[a-1]=1-cambia[a-1];
+			if(cambia[a-1]==1){consumo[a-1]=consumo[a-1]+co[a-1];}
+			else if(cambia[a-1]==0){consumo[a-1]=consumo[a-1]-co[a-1];}
+			for(int j=0;j<n;j++){
+				total[i]=total[i]+consumo[j];
+			}
+		}
+		int mayor=0;
+		for(int i=0;i<m;i++){
+			mayor=Mayor(mayor,total[i]);
+		}
+		cout<<"Sequence "<<t+1<<endl;
+		if(mayor>c){cout<<"Fuse was blown."<<endl;}
+		else if(mayor<=c){
+			cout<<"Fuse was not blown."<<endl;
+			cout<<"Maximal power consumption was "<<mayor<<" amperes."<<endl;
+		}
+		t++;
+	}
+	cout<<endl;
+	return 0;
+}
+*******
