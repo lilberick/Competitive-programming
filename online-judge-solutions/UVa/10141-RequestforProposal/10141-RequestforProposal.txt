@@ -1,0 +1,36 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1082
+*******Accepted:
+#include <iostream>
+#include <limits>
+using namespace std;
+int main(){
+	int n,p,propuestas,t=0;
+	string linea,nombre,name;
+	double precio;
+	while(cin>>n>>p, n||p){
+		if(t>0){cout<<endl;}
+		cin.ignore();
+		int propumayor=-1;
+		double preciomenor=numeric_limits<double>::max();
+		bool termina=false;
+		for(int i=0;i<n;i++){getline(cin,linea);}
+		for(int i=0;i<p;i++){
+			getline(cin,nombre);
+			cin>>precio>>propuestas;
+			cin.ignore();
+			for(int j=0;j<propuestas;j++){
+				getline(cin,linea);
+			}
+			if(propuestas>propumayor || (propuestas==propumayor && precio<preciomenor)){
+				propumayor=propuestas;
+				name=nombre;
+				preciomenor=precio;
+			}
+		}
+		cout<<"RFP #"<<t+1<<endl;
+		cout<<name<<endl;
+		t++;
+	}
+}
+*******
