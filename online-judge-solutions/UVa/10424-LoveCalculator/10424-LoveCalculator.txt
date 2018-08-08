@@ -1,0 +1,41 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1365
+*******Accepted:
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int sumaletras(string s){
+	int suma=0;
+	for(int i=0;i<s.size();i++){
+		if(s[i]>=97 && s[i]<=122){
+			suma=suma+(s[i]-96);
+		}else if(s[i]>=65 && s[i]<=90){
+			suma=suma+(s[i]-64);
+		}
+	}
+	return suma;
+}
+int sumadigitos(int t){
+	int sumadigitos;
+	sumadigitos=t/100+(t%100)/10+t%10;
+	return sumadigitos;
+}
+int undigito(string z){
+	int suma=sumaletras(z);
+	int sumadig=sumadigitos(suma);
+	while(sumadig>9){sumadig=sumadigitos(sumadig);}
+	return sumadig;
+}
+int main(){
+	int t;
+	string s,a;
+	double x,y,res;
+	while(getline(cin,s),getline(cin,a)){
+		x=undigito(s);
+		y=undigito(a);
+		if(x>=y){res=(y/x)*100;}
+		else{res=(x/y)*100;}
+		cout<<fixed<<setprecision(2)<<res<<" %"<<endl;
+	}
+}
+*******
