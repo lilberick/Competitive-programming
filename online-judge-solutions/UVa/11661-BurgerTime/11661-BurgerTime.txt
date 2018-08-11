@@ -1,0 +1,46 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2708
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int L;
+	string s;
+	while(cin>>L && L!=0){
+		int d;
+		bool termina=false;
+		char letra;
+		cin>>s;
+		for(int i=0;i<s.size() && termina==false;i++){
+			if(s[i]=='Z'){d=0;termina=true;}
+		}
+		int dif=2000001,t=0,c=0,mindif;
+		letra='T';
+		if(termina!=true){
+			for(int i=0;i<s.size();i++){
+				if(letra!=s[i] && s[i]!='.'){
+					letra=s[i];
+					c=t;
+					t=0;
+				}else if(letra==s[i] && s[i]!='.'){
+					t=0;
+				}else if((s[i]=='.' || s[i]!=letra) && letra!='T'){
+					t++;
+				}
+				if(dif>c && c!=0){dif=c;}
+			}
+			bool acaba=false;
+			int x=0;
+			for(int i=1;i<s.size() && acaba==false;i++){
+				if(s[i-1]=='D' && s[i]=='R'){x=1;acaba=true;}
+				else if(s[i-1]=='R' && s[i]=='D'){x=1;acaba=true;}
+			}
+			if(x==1){mindif=1;}
+			else{mindif=dif+1;}
+			d=mindif;
+		}
+		cout<<d<<endl;
+	}
+	return 0;
+}
+*******
