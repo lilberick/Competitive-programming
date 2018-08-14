@@ -1,0 +1,28 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2633
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int N;
+	cin>>N;
+	cin.ignore();
+	while(N--){
+		string s,a;
+		getline(cin,a);
+		for(int i=0;i<a.size();i++){
+			if(!(a[i-1]==' ' && a[i]==' ')){s=s+a[i];}
+		}
+		int ml=0,mr=0,fl=0,fr=0;
+		for(int i=0;i<s.size();i++){
+			if(i%3==1 && s[i]=='M'){mr++;}
+			if(i%3==0 && s[i]=='M'){ml++;}
+			if(i%3==0 && s[i]=='F'){fl++;}
+			if(i%3==1 && s[i]=='F'){fr++;}
+		}
+		if((ml==fr || mr==fl) && s.size()!=2){cout<<"LOOP"<<endl;}
+		else{cout<<"NO LOOP"<<endl;}
+	}
+	return 0;
+}
+*******
