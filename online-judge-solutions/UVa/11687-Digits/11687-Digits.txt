@@ -1,0 +1,25 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2734
+*******Accepted:
+#include <iostream>
+#include <sstream>
+using namespace std;
+int main(){
+	string s;
+	while(cin>>s && s!="END"){
+		int n,i=0;
+		bool termina=true;
+		while(termina){
+			n=s.size();
+			ostringstream ss;
+			ss<<n;
+			if(ss.str()!=s){
+				s=ss.str();
+			}else{termina=false;}
+			i++;
+		}
+		cout<<i<<endl;
+	}
+	return 0;
+}
+*******
