@@ -1,0 +1,41 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3107
+*******Accepted:
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+int main(){
+	int T;
+	cin>>T;
+	cin.ignore();
+	for(int i=0;i<T;i++){
+		vector<int> a(100);
+		cout<<"Case "<<dec<<i+1<<": ";
+		string s;
+		getline(cin,s);
+		int t=0;
+		for(int j=0;j<s.size();j++){
+			if(s[j]=='+'){
+				a[t]++;
+				if(a[t]==256){a[t]=0;}
+			}else if(s[j]=='-'){
+				a[t]--;
+				if(a[t]==-1){a[t]=255;}
+			}else if(s[j]=='>'){
+				t++;
+				if(t==100){t=0;}
+			}else if(s[j]=='<'){
+				t--;
+				if(t==-1){t=99;}
+			}
+		}
+		for(int j=0;j<100;j++){
+			cout<<uppercase<<hex<<setfill('0')<<setw(2)<<a[j];
+			if(j<99){cout<<" ";}
+		}
+		cout<<endl;
+	}
+	return 0;
+}
+*******
