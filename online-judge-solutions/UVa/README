@@ -1,0 +1,75 @@
+.
+├── 01-Introduction
+│   ├── 01-Getting_Started_The_Easy_Problems
+│   │   ├── 01-Super_Easy
+│   │   │   ├── 10550-CombinationLock
+│   │   │   ├── 11044-SearchingforNessy
+│   │   │   ├── 11172-RelationalOperator
+│   │   │   ├── 1124-Celebrityjeopardy
+│   │   │   ├── 11364-Parking
+│   │   │   ├── 11498-DivisionofNlogonia
+│   │   │   ├── 11547-AutomaticAnswer
+│   │   │   ├── 11727-CostCutting
+│   │   │   ├── 12250-LanguageDetection
+│   │   │   ├── 12279-EmoogleBalance
+│   │   │   ├── 12289-One-Two-Three
+│   │   │   ├── 12372-PackingforHoliday
+│   │   │   ├── 12403-SaveSetu
+│   │   │   ├── 12577-Hajj-e-Akbar
+│   │   │   └── 272-TEXQuotes
+│   │   ├── 02-Easy
+│   │   │   ├── 10114-LoansomeCarBuyer
+│   │   │   ├── 10300-EcologicalPremium
+│   │   │   ├── 10963-TheSwallowingGround
+│   │   │   ├── 11332-SummingDigits
+│   │   │   ├── 11559-EventPlanning
+│   │   │   ├── 11679-Sub-prime
+│   │   │   ├── 11764-JumpingMario
+│   │   │   ├── 11799-HorrorDash
+│   │   │   ├── 11942-LumberjackSequencing
+│   │   │   ├── 12015-GoogleisFeelingLucky
+│   │   │   ├── 12157-TariffPlan
+│   │   │   ├── 12468-Zapping
+│   │   │   ├── 12503-RobotInstructions
+│   │   │   ├── 12554-ASpecialHappyBirthdaySong
+│   │   │   └── 621-SecretResearch
+│   │   └── 03-Medium
+│   │       ├── 10141-RequestforProposal
+│   │       ├── 10324-ZerosandOnes
+│   │       ├── 10424-LoveCalculator
+│   │       ├── 10919-Prerequisites
+│   │       ├── 11507-Bender B.RodríguezProblem
+│   │       │   └── Imagenes
+│   │       ├── 11586-TrainTracks
+│   │       ├── 11661-BurgerTime
+│   │       ├── 11683-LaserSculpture
+│   │       ├── 11687-Digits
+│   │       ├── 11956-Brainfuck
+│   │       ├── 119-GreedyGiftGivers
+│   │       ├── 12478-HardestProblemEver(Easy)
+│   │       ├── 573-TheSnail
+│   │       └── 661-BlowingFuses
+│   └── 02-Ad_Hoc_Problems-Part_1
+│       ├── 01-Game_Card
+│       ├── 02-Game_Chess
+│       │   ├── 10284-ChessboardinFEN
+│       │   ├── 11494-Queen
+│       │   ├── 278-Chess
+│       │   └── 696-HowManyKnights
+│       ├── 03-Game_Others_Easier
+│       │   ├── 10189-Minesweeper
+│       │   ├── 11459-Snakes andLadders
+│       │   │   └── Imagenes
+│       │   └── 489-HangmanJudge
+│       └── 04-Game_Others_Harder
+│           └── 584-Bowling
+├── 03-Problem_Solving_Paradigms
+│   ├── 01-Iterative_One_Loop-Linear_Scan
+│   │   ├── 10487-ClosestSums
+│   │   ├── 1237-ExpertEnough
+│   │   └── 1260-Sales
+│   └── 02-Iterative_Two_Nested_Loops
+└── 05-Mathematics
+    └── 02-Mathematical_Simulation-Brute_Force-Easier
+        └── 100-The3n+1problem
+
