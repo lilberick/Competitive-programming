@@ -50,7 +50,6 @@
 │   │       ├── 573-TheSnail
 │   │       └── 661-BlowingFuses
 │   └── 02-Ad_Hoc_Problems-Part_1
-│       ├── 01-Game_Card
 │       ├── 02-Game_Chess
 │       │   ├── 10284-ChessboardinFEN
 │       │   ├── 11494-Queen
@@ -63,13 +62,23 @@
 │       │   └── 489-HangmanJudge
 │       └── 04-Game_Others_Harder
 │           └── 584-Bowling
+├── 02-Data_Structures_and_Libraries
+│   └── 01-Linear_Data_Structures_with_Built-in_Libraries
+│       ├── 01-1D_Array_Manipulation
+│       ├── 02-2D_Array_Manipulation
+│       ├── 03-C++_STL_Algorithm
+│       ├── 04-Bit_Manipulation
+│       ├── 05-C++_STL_list
+│       ├── 06-C++_STL_stack
+│       │   └── 514-Rails
+│       └── 07-C++_queue_and_deque
 ├── 03-Problem_Solving_Paradigms
-│   ├── 01-Iterative_One_Loop-Linear_Scan
-│   │   ├── 10487-ClosestSums
-│   │   ├── 1237-ExpertEnough
-│   │   └── 1260-Sales
-│   └── 02-Iterative_Two_Nested_Loops
+│   └── 01-Iterative_One_Loop-Linear_Scan
+│       ├── 10487-ClosestSums
+│       ├── 1237-ExpertEnough
+│       └── 1260-Sales
 └── 05-Mathematics
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
+81 directories
