@@ -1,0 +1,26 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2077
+*******Accepted:
+#include <iostream>
+#include <set>
+using namespace std;
+int main(){
+	int n,k,a;
+	while(cin>>n,n){
+		multiset<int,greater<int > > m;
+		long long monto=0;
+		while(n--){
+			cin>>k;
+			for(int i=0;i<k;i++){
+				cin>>a;
+				m.insert(a);
+			}
+			monto+=(*m.begin())-(*(--(m.end())));
+			m.erase(m.begin());
+			m.erase(--(m.end()));
+		}
+		cout<<monto<<endl;
+	}
+	return 0;
+}
+*******
