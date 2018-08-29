@@ -1,0 +1,29 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1167
+*******Accepted:
+#include <iostream>
+#include <iomanip>
+#include <map>
+#define tr(c,i) for(typeof(c.begin()) i=c.begin();i!=c.end();i++)
+using namespace std;
+int main(){
+	int n;
+	string s,b;
+	cin>>n;
+	cin.ignore();
+	getline(cin,b);
+	int t=n-1;
+	while(n--){
+		if(t!=n){cout<<endl;}
+		map<string,int> m;
+		int total=0;
+		while(getline(cin,s) && s!=""){m[s]++;total++;}
+		double porcentaje=0;
+		tr(m,i){
+			porcentaje=((i->second)/((total)*1.0))*100;
+			cout<<i->first<<" "<<fixed<<setprecision(4)<<porcentaje<<endl;
+		}
+	}
+	return 0;
+}
+*******

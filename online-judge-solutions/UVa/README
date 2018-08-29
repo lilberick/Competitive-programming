@@ -68,6 +68,7 @@
 │   │       └── 514-Rails
 │   └── 02-Non-Linear_Data_Structures_with_Built-in_Libraries
 │       ├── 01-C++_STL_map
+│       │   ├── 10226-HardwoodSpecies
 │       │   └── 11286-Conformity
 │       ├── 02-C++_STL_set
 │       │   ├── 11136-Hoaxorwhat
@@ -84,4 +85,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-84 directories
+85 directories
