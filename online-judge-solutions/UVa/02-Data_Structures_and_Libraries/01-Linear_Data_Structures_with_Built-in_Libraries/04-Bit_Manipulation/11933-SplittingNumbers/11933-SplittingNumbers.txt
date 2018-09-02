@@ -1,0 +1,23 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3084
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int n;
+	while(cin>>n,n){
+		int a=0,b=0,t=0;
+		while(n&(-n)){
+			if(t){
+				b|=(n&(-n));
+			}else{
+				a|=(n&(-n));
+			}
+			n-=(n&(-n));
+			t=!t;
+		}
+		cout<<a<<" "<<b<<endl;
+	}
+	return 0;
+}
+*******

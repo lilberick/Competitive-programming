@@ -1,0 +1,35 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2315
+*******Accepted:
+#include <iostream> 
+#include <iomanip>
+using namespace std;
+int main(){
+	long long N,K,M;
+	cin>>N;
+	while(N--){
+		cin>>K;
+		char a[K];
+		long long p[K];
+		for(int i=0;i<K;i++){
+			cin>>a[i]>>p[i];
+		}
+		cin>>M;
+		double suma=0;
+		cin.ignore();
+		for(int k=0;k<M;k++){
+			string lines;
+			getline(cin,lines);
+			for(int i=0;i<lines.size();i++){
+				for(int j=0;j<K;j++){
+					if(lines[i]==a[j]){
+						suma=suma+p[j];
+					}
+				}
+			}
+		}
+		cout<<fixed<<setprecision(2)<<suma/100<<"$"<<endl;
+	}
+	return 0;
+}
+*******

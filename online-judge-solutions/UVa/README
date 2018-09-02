@@ -64,6 +64,19 @@
 │           └── 584-Bowling
 ├── 02-Data_Structures_and_Libraries
 │   ├── 01-Linear_Data_Structures_with_Built-in_Libraries
+│   │   ├── 01-1D_Array_Manipulation
+│   │   │   ├── 10038-JollyJumpers
+│   │   │   └── 11340-Newspaper
+│   │   ├── 02-2D_Array_Manipulation
+│   │   │   └── 10855-Rotatedsquare
+│   │   ├── 03-C++_STL_Algorithm
+│   │   │   ├── 10107-WhatistheMedian
+│   │   │   └── 146-IDCodes
+│   │   ├── 04-Bit_Manipulation
+│   │   │   ├── 11173-GreyCodes
+│   │   │   │   └── Imagenes
+│   │   │   ├── 11933-SplittingNumbers
+│   │   │   └── 594-OneLittleTwoLittleThreeLittleEndians
 │   │   └── 06-C++_STL_stack
 │   │       └── 514-Rails
 │   └── 02-Non-Linear_Data_Structures_with_Built-in_Libraries
@@ -85,4 +98,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-85 directories
+98 directories

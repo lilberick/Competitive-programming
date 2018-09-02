@@ -1,0 +1,15 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2114
+*******Accepted:
+#include <iostream>
+using namespace std;
+int main(){
+	int N,n,k;
+	cin>>N;
+	while(N--){
+		cin>>n>>k;
+		cout<<(k^(k>>1))<<endl;
+	}
+	return 0;
+}
+*******
