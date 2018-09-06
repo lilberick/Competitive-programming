@@ -66,7 +66,8 @@
 │   ├── 01-Linear_Data_Structures_with_Built-in_Libraries
 │   │   ├── 01-1D_Array_Manipulation
 │   │   │   ├── 10038-JollyJumpers
-│   │   │   └── 11340-Newspaper
+│   │   │   ├── 11340-Newspaper
+│   │   │   └── 230-Borrowers
 │   │   ├── 02-2D_Array_Manipulation
 │   │   │   └── 10855-Rotatedsquare
 │   │   ├── 03-C++_STL_Algorithm
@@ -98,4 +99,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-98 directories
+99 directories
