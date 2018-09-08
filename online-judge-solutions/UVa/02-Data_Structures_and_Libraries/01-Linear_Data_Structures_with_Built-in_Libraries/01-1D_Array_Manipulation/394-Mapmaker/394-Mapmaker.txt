@@ -1,0 +1,61 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=330
+*******Accepted:
+#include<iostream>
+#include<map>
+#include<utility>
+#include<vector>
+using namespace std;
+int main(){
+	string name;
+	int N,R,a,b,c,cd,d;
+	while(cin>>N>>R){
+		vector< vector<int> > C;
+		vector<int> D;
+		map<string,int> nombre;
+		for(int i=0;i<N;i++){
+			vector<pair<int,int> > v;
+			cin>>name>>b>>cd>>d;
+			nombre[name]=i;
+			D.push_back(d);
+			for(int j=0;j<d;j++){
+				cin>>a>>c;
+				v.push_back(make_pair(a,c));
+			}
+			int Ca[d+1];
+			for(int j=d;j>=0;j--){
+				if(j==d){Ca[j]=cd;}
+				else if(j<d && j>0){
+					Ca[j]=Ca[j+1]*((v[j].second)-(v[j].first)+1);
+				}
+			}
+			Ca[0]=b;
+			for(int j=1;j<=d;j++){
+				Ca[0]=Ca[0]-(Ca[j] * v[j-1].first);
+			}
+			vector<int> agregaraC(Ca,Ca+sizeof(Ca)/sizeof(Ca[0]));
+			C.push_back(agregaraC);
+		}
+		int x;
+		for(int i=0;i<R;i++){
+			cin>>name;
+			x=(nombre.find(name)->second);
+			vector<int> I;
+			I.push_back(0);
+			for(int j=0;j<D[x];j++){cin>>a;I.push_back(a);}
+			int Address=C[x][0];
+			for(int j=1;j<C[x].size();j++){
+				Address+=C[x][j]*I[j];
+			}
+			cout<<nombre.find(name)->first<<"[";
+			for(int j=1;j<I.size();j++){
+				cout<<I[j];
+				if(j<(I.size()-1)){cout<<", ";}
+			}
+			cout<<"] = "<<Address<<endl;
+		}
+	
+	}
+	return 0;
+}
+*******

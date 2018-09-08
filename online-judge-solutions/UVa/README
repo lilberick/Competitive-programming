@@ -67,7 +67,9 @@
 │   │   ├── 01-1D_Array_Manipulation
 │   │   │   ├── 10038-JollyJumpers
 │   │   │   ├── 11340-Newspaper
-│   │   │   └── 230-Borrowers
+│   │   │   ├── 230-Borrowers
+│   │   │   └── 394-Mapmaker
+│   │   │       └── Imagenes
 │   │   ├── 02-2D_Array_Manipulation
 │   │   │   └── 10855-Rotatedsquare
 │   │   ├── 03-C++_STL_Algorithm
@@ -99,4 +101,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-99 directories
+101 directories
