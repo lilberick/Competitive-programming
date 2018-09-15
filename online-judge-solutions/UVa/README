@@ -71,7 +71,8 @@
 │   │   │   ├── 394-Mapmaker
 │   │   │   │   └── Imagenes
 │   │   │   ├── 414-MachinedSurfaces
-│   │   │   └── 467-SynchingSignals
+│   │   │   ├── 467-SynchingSignals
+│   │   │   └── 482-PermutationArrays
 │   │   ├── 02-2D_Array_Manipulation
 │   │   │   └── 10855-Rotatedsquare
 │   │   ├── 03-C++_STL_Algorithm
@@ -103,4 +104,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-103 directories
+104 directories
