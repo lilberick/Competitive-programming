@@ -72,7 +72,8 @@
 │   │   │   │   └── Imagenes
 │   │   │   ├── 414-MachinedSurfaces
 │   │   │   ├── 467-SynchingSignals
-│   │   │   └── 482-PermutationArrays
+│   │   │   ├── 482-PermutationArrays
+│   │   │   └── 591-BoxofBricks
 │   │   ├── 02-2D_Array_Manipulation
 │   │   │   └── 10855-Rotatedsquare
 │   │   ├── 03-C++_STL_Algorithm
@@ -104,4 +105,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-104 directories
+105 directories
