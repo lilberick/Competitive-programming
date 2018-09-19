@@ -2,114 +2,44 @@
 https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=696
 *******Accepted:
 #include<iostream>
-#include<cstdio>
-#include<stack>
-#include<queue>
 #include<map>
-#include<vector>
-#include<algorithm>
-#include<cstring>
-#include<sstream>
-#include<cmath>
-#include <iomanip>
-using namespace std ;
-typedef long long ll ;
-typedef int in ;
-typedef unsigned long long ull ;
-const double pi = 2*acos(0) ;
-#define maxi 40000
-#define pf printf
-#define sc scanf
-#define pb push_back
-#define MEM(x,y) (memset((x),(y),sizeof(x)))
-#define MIN(x,y) ((x) < (y) ? (x) : (y))
-#define MAX(x,y) ((x) > (y) ? (x) : (y))
-#define load(array,size)  for(int i=0 ; i<size ; i++) cin>>array[i]  ;
-#define new_line  pf("\n")
-#define clear_data(array) memset(array,0,sizeof(array))
-#define highest_int 2147483647
-
-map<string,int> my_map ;
-map<string,int>::iterator it;
-
-
-char getChar(char ch)
-{
-    if(ch=='A' || ch=='B' || ch=='C')
-        return '2';
-    else if(ch=='D' || ch=='E' || ch=='F')
-        return '3';
-    else if(ch=='G' || ch=='H' || ch=='I')
-        return '4';
-    else if(ch=='J' || ch=='K' || ch=='L')
-        return '5';
-    else if(ch=='M' || ch=='N' || ch=='O')
-        return '6';
-    else if(ch=='P' || ch=='R' || ch=='S')
-        return '7';
-    else if(ch=='T' || ch=='U' || ch=='V')
-        return '8';
-    else if(ch=='W' || ch=='X' || ch=='Y')
-        return '9';
-    else if(ch>='0' && ch<='9')
-        return ch;
-    return 'Q';
+#define tr(c,i) for(typeof(c.begin()) i=c.begin();i!=c.end();i++)
+using namespace std;
+char cambio(char a){
+	if(a=='A' || a=='B' || a=='C') return '2';
+	else if(a=='D' || a=='E' || a=='F') return '3';
+	else if(a=='G' || a=='H' || a=='I') return '4';
+	else if(a=='J' || a=='K' || a=='L') return '5';
+	else if(a=='M' || a=='N' || a=='O') return '6';
+	else if(a=='P' || a=='R' || a=='S') return '7';
+	else if(a=='T' || a=='U' || a=='V') return '8';
+	else if(a=='W' || a=='X' || a=='Y') return '9';
+	else if((a>='0')&&(a<='9')) return a;
+	return 'Q';
 }
-
-
-string convert_str(string s)
-{
-    string result,ans;
-
-    for(int i=0 ; i<s.size() ; i++)
-    {
-        if(s[i]!='-')
-        {
-            result += getChar(s[i]);
-        }
-    }
-
-    for(int i=0 ; i<result.size() ; i++)
-    {
-        if(i==3)
-            ans += '-';
-        ans += result[i];
-    }
-    return ans;
-}
-
-
-int main()
-{
-    int test,n;
-    string str,s;
-    sc("%d",&test);
-    for(int cs=1 ; cs<=test ; cs++)
-    {
-        sc("%d",&n);
-
-        while(n--)
-        {
-            cin>>str;
-            s = convert_str(str);
-            my_map[s]++;
-        }
-        if(cs>1)
-            pf("\n");
-        bool get = false ;
-        for(it = my_map.begin() ; it!=my_map.end() ; it++)
-        {
-            if(it->second >1)
-            {
-                get = true;
-                cout<<it->first<<" "<<it->second<<endl;
-            }
-        }
-        if(!get)
-            pf("No duplicates.\n");
-        my_map.clear();
-    }
-
-    return 0;
+int main(){
+	int d,n;
+	cin>>d;
+	while(d--){
+		map<string,int> m;
+		cin>>n;
+		for(int i=0;i<n;i++){
+			string s,a;
+			cin>>s;
+			for(int i=0;i<s.size();i++){
+				if(s[i]!='-'){a+=cambio(s[i]);}
+				if(a.size()==4){a.insert(3,"-");}
+			}
+			m[a]++;
+		}
+		if(m.size()==n){cout<<"No duplicates."<<endl;}
+		else{
+			tr(m,i){
+				if((i->second)>1){cout<<i->first<<" "<<i->second<<endl;}
+			}
+		}
+		if(d>0){cout<<endl;}
+	}
+	return 0;
 }
 *******
