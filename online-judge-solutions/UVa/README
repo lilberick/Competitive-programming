@@ -66,6 +66,7 @@
 │   ├── 01-Linear_Data_Structures_with_Built-in_Libraries
 │   │   ├── 01-1D_Array_Manipulation
 │   │   │   ├── 10038-JollyJumpers
+│   │   │   ├── 10050-Hartals
 │   │   │   ├── 11340-Newspaper
 │   │   │   ├── 230-Borrowers
 │   │   │   ├── 394-Mapmaker
@@ -106,4 +107,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-106 directories
+107 directories
