@@ -1,0 +1,30 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2034
+*******Accepted:
+#include<iostream>
+#include<climits>
+using namespace std;
+int main(){
+	int T,N,caso=0;
+	cin>>T;
+	while(T--){
+		cin>>N;
+		int p[N],q[N];
+		for(int i=0;i<N;i++){cin>>p[i];}
+		for(int i=0;i<N;i++){cin>>q[i];}
+		long long suma=0,minimo=LLONG_MAX;
+		for(int i=0;i<N;i++){
+			suma+=p[i]-q[i];
+			minimo=min(suma,minimo);
+		}
+		int indice=0;
+		while(minimo<0 && indice<N){
+			minimo-=p[indice]-q[indice++];
+		}
+		cout<<"Case "<<++caso<<": ";
+		if(indice==N || suma<0){cout<<"Not possible"<<endl;}	
+		else{cout<<"Possible from station "<<indice+1<<endl;}
+	}
+	return 0;
+}
+*******
