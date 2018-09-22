@@ -68,6 +68,7 @@
 │   │   │   ├── 10038-JollyJumpers
 │   │   │   ├── 10050-Hartals
 │   │   │   ├── 10260-Soundex
+│   │   │   ├── 10978-LetsPlayMagic
 │   │   │   ├── 11340-Newspaper
 │   │   │   ├── 230-Borrowers
 │   │   │   ├── 394-Mapmaker
@@ -108,4 +109,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-108 directories
+109 directories

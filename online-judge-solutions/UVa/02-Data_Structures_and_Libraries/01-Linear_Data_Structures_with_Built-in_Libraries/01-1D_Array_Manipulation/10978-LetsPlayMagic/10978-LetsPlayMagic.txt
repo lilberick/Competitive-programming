@@ -1,33 +1,30 @@
 *******link del problema:
 https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1919
 *******Accepted:
-#include <stdio.h>
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-int main() {
-    int n;
-    while(scanf("%d", &n) == 1 && n) {
-        string ret[n];
-        string s, foo;
-        int i, idx = 0, len;
-        for(i = 0; i < n; i++) {
-            cin >> s >> foo;
-            len = foo.length();
-            while(len) {
-                if(ret[idx] == "")
-                    len--;
-                idx++;
-                if(idx >= n)    idx = 0;
-            }
-            ret[(idx-1+n)%n] = s;
-        }
-        for(i = 0; i < n; i++) {
-            if(i)   putchar(' ');
-            cout << ret[i];
-        }
-        puts("");
-    }
-    return 0;
+int main(){
+	int N;
+	while(cin>>N,N){
+		string a,b,r[N];
+		int aqui=-1;
+		for(int i=0;i<N;i++){
+			cin>>a>>b;
+			int agregar=b.size();
+			int t=0;
+			while(t!=agregar){
+				if(r[aqui%N].empty()){t++;}	
+				if(t==agregar){r[aqui%N]=a;}
+				aqui++;
+			}
+		}
+		int n=sizeof(r)/sizeof(r[0]);
+		for(int i=0;i<n;i++){
+			cout<<r[i];
+			if(i<n-1){cout<<" ";}
+		}
+		cout<<endl;
+	}
+	return 0;
 }
 *******
