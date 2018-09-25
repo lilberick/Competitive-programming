@@ -1,46 +1,58 @@
 *******link del problema:
 https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2163
 *******Accepted:
-#include <stdio.h>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
-
-int main() {
-    int t, Case = 0;
-    int i, j;
-    scanf("%d", &t);
-    while(t--) {
-        printf("Case #%d:\n", ++Case);
-        int A[3], B[3][1000];
-        int mark[10001] = {};
-        for(i = 0; i < 3; i++) {
-            scanf("%d", &A[i]);
-            for(j = 0; j < A[i]; j++) {
-                scanf("%d", &B[i][j]);
-                mark[B[i][j]]++;
-            }
-            sort(B[i], B[i]+A[i]);
-        }
-        int max = 0, solve[3];
-        for(i = 0; i < 3; i++) {
-            int tmp = 0;
-            for(j = 0; j < A[i]; j++)
-                if(mark[B[i][j]] == 1)
-                    tmp++;
-            if(tmp > max)
-                max = tmp;
-            solve[i] = tmp;
-        }
-        for(i = 0; i < 3; i++) {
-            if(solve[i] == max) {
-                printf("%d %d", i+1, solve[i]);
-                for(j = 0; j < A[i]; j++)
-                    if(mark[B[i][j]] == 1)
-                        printf(" %d", B[i][j]);
-                puts("");
-            }
-        }
-    }
-    return 0;
+int max(int x,int y){return x^((x^y) & -(x<y));}
+int main(){
+	int T,S,d,C=0;
+	cin>>T;
+	while(T--){
+		int tres=3;
+		vector<vector<int> > v,f;
+		while(tres--){
+			cin>>S;
+			vector<int> va;
+			for(int i=0;i<S;i++){cin>>d; va.push_back(d);}
+			v.push_back(va);
+		}
+		for(int i=0;i<v.size();i++){
+			sort(v[i].begin(),v[i].end());
+			v[i].erase(unique(v[i].begin(),v[i].end()),v[i].end());
+		}
+		vector<int> r,s;
+		//v[0] unico y detergente
+		set_difference(v[0].begin(),v[0].end(),v[1].begin(),v[1].end(),inserter(r,r.end()));
+		set_difference(r.begin(),r.end(),v[2].begin(),v[2].end(),inserter(s,s.end()));
+		f.push_back(s); r.clear(); s.clear();
+		//v[1] unico y detergente
+		set_difference(v[1].begin(),v[1].end(),v[0].begin(),v[0].end(),inserter(r,r.end()));
+		set_difference(r.begin(),r.end(),v[2].begin(),v[2].end(),inserter(s,s.end()));
+		f.push_back(s); r.clear(); s.clear();
+		//v[2] unico y detergente
+		set_difference(v[2].begin(),v[2].end(),v[0].begin(),v[0].end(),inserter(r,r.end()));
+		set_difference(r.begin(),r.end(),v[1].begin(),v[1].end(),inserter(s,s.end()));
+		f.push_back(s); r.clear(); s.clear();
+		v=f;
+		int indice_mayor=0;
+		for(int i=0;i<v.size();i++){
+			indice_mayor=max(v[i].size(),indice_mayor);
+		}
+		cout<<"Case #"<<++C<<":"<<endl;;
+		for(int i=0;i<v.size();i++){
+			if(v[i].size()==indice_mayor){
+				cout<<i+1<<" "<<v[i].size();
+				if(v[i].size()>0){cout<<" ";}
+				for(int j=0;j<v[i].size();j++){
+					cout<<v[i][j];
+					if(j<(v[i].size()-1)){cout<<" ";}
+				}
+				cout<<endl;
+			}
+		}
+	}
+	return 0;
 }
 *******
