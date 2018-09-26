@@ -1,0 +1,25 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2655
+*******Accepted:
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+	int S,a,C=0,d;
+	while(cin>>S && S>=0){
+		cout<<"Case "<<++C<<":"<<endl;
+		vector<int> c,r;
+		for(int i=0;i<12;i++){cin>>a; c.push_back(a);}
+		for(int i=0;i<12;i++){cin>>a; r.push_back(a);}
+		for(int i=0;i<12;i++){
+			cout<<"No problem";
+			if(S<r[i]){cout<<". :("<<endl;}
+			else if(S>=r[i]){cout<<"! :D"<<endl;}
+			d=S-r[i];
+			if(d<0){S+=c[i];}
+			else{S=d+c[i];}
+		}
+	}
+	return 0;
+}
+*******
