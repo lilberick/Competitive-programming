@@ -1,0 +1,26 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2950
+*******Accepted:
+#include<iostream>
+#include<set>
+#define tr(c,i) for(typeof(c.begin()) i=c.begin();i!=c.end();i++)
+using namespace std;
+int main(){
+	int n,a;
+	while(cin>>n,n){
+		set<int> s;
+		while(n--){cin>>a; s.insert(a);}
+		int ia,t=0;
+		tr(s,i){
+			if(i!=s.begin()){
+				if(*i-ia>200){t++;}
+			}
+			ia=*i;
+		}
+		if((1422-ia)*2>200){t++;}
+		if(t==0){cout<<"POSSIBLE"<<endl;}
+		else{cout<<"IMPOSSIBLE"<<endl;}
+	}
+	return 0;
+}
+*******
