@@ -1,0 +1,61 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=407
+*******Accepted:
+#include<iostream>
+#include<vector>
+using namespace std;
+#define REP(i,b,n) for(int i=b;i<n;i++)
+#define rep(i,n) REP(i,0,n)
+int main(){
+	int n,t=0;
+	while(cin>>n){
+		vector<vector<char> > a(n,vector<char>(n)),b(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){cin>>a[i][j];}
+			rep(j,n){cin>>b[i][j];}
+		}
+		vector<vector<char> > g90(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){g90[i][j]=a[n-j-1][i];}
+		}
+		vector<vector<char> > g180(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){g180[i][j]=a[n-i-1][n-j-1];}
+		}
+		vector<vector<char> > g270(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){g270[i][j]=a[j][n-i-1];}
+		}
+		vector<vector<char> > rv(n,vector<char>(n));
+		rep(i,n){
+			rv[i]=a[n-i-1];
+		}
+		//REFLEJAR VERTICALMENTE Y ROTAR 270
+		vector<vector<char> > rv270(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){rv270[i][j]=rv[j][n-i-1];}
+		}
+		//REFLEJAR VERTICALMENTE Y ROTAR 180
+		vector<vector<char> > rv180(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){rv180[i][j]=rv[n-i-1][n-j-1];}
+		}
+		//REFLEJAR VERTICALMENTE Y ROTAR 90
+		vector<vector<char> > rv90(n,vector<char>(n));
+		rep(i,n){
+			rep(j,n){rv90[i][j]=rv[n-j-1][i];}
+		}
+		cout<<"Pattern "<<++t<<" was ";
+		if(b==a){cout<<"preserved."<<endl;}
+		else if(b==g90){cout<<"rotated 90 degrees."<<endl;}
+		else if(b==g180){cout<<"rotated 180 degrees."<<endl;}
+		else if(b==g270){cout<<"rotated 270 degrees."<<endl;}
+		else if(b==rv270){cout<<"reflected vertically and rotated 270 degrees.\n";}
+		else if(b==rv180){cout<<"reflected vertically and rotated 180 degrees.\n";}
+		else if(b==rv90){cout<<"reflected vertically and rotated 90 degrees.\n";}
+		else if(b==rv){cout<<"reflected vertically."<<endl;}
+		else{cout<<"improperly transformed."<<endl;}
+	}
+	return 0;
+}
+*******
