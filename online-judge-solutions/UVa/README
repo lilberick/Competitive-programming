@@ -92,6 +92,7 @@
 │   │   │   │   └── Imagenes
 │   │   │   ├── 101-TheBlocksProblem
 │   │   │   ├── 10855-Rotatedsquare
+│   │   │   ├── 11360-HaveFunwithMatrices
 │   │   │   ├── 434-MattysBlocks
 │   │   │   └── 466-MirrorMirror
 │   │   ├── 03-C++_STL_Algorithm
@@ -123,4 +124,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-123 directories
+124 directories
