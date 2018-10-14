@@ -1,0 +1,139 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1137
+*******Accepted:
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#define REP(i,b,n) for(int i=b;i<n;i++)
+#define rep(i,n) REP(i,0,n)
+using namespace std;
+bool vacio(string s[8]){
+	rep(i,8){
+		if(count(s[i].begin(),s[i].end(),'.')!=8){return 0;}
+	}
+	return 1;
+}
+vector<vector<char> >ajedrez(vector<vector<char> >&b){
+	rep(i,8){
+		rep(j,8){
+			//PEON NEGRO
+			if(b[i][j]=='p'){
+				if((i+1)<8 && (j-1)>-1 && (b[i+1][j-1]=='.' || b[i+1][j-1]=='K')){b[i+1][j-1]='-';}
+				if((i+1)<8 && (j+1)<8 && (b[i+1][j+1]=='.' || b[i+1][j+1]=='K')){b[i+1][j+1]='-';}
+			}
+			//PEON BLANCO
+			if(b[i][j]=='P'){
+				if((i-1)>-1 && (j-1)>-1 && (b[i-1][j-1]=='.' || b[i-1][j-1]=='k')){b[i-1][j-1]='-';}
+				if((i-1)>-1 && (j+1)<8 && (b[i-1][j+1]=='.' || b[i-1][j+1]=='k')){b[i-1][j+1]='-';}
+			}
+			//CABALLO NEGRO
+			if(b[i][j]=='n'){
+				if((i+1)<8 && (j-2)>-1 && (b[i+1][j-2]=='.' || b[i+1][j-2]=='K')){b[i+1][j-2]='-';}
+				if((i-1)>-1 && (j-2)>-1 && (b[i-1][j-2]=='.' || b[i-1][j-2]=='K')){b[i-1][j-2]='-';}	
+				if((i-2)>-1 && (j-1)>-1 && (b[i-2][j-1]=='.' ||  b[i-2][j-1]=='K')){b[i-2][j-1]='-';}
+				if((i+2)<8 && (j-1)>-1 && (b[i+2][j-1]=='.' || b[i+2][j-1]=='K')){b[i+2][j-1]='-';}
+				if((i-2)>-1 && (j+1)<8 && (b[i-2][j+1]=='.' || b[i-2][j+1]=='K')){b[i-2][j+1]='-';}
+				if((i+2)<8 && (j+1)<8 && (b[i+2][j+1]=='.' || b[i+2][j+1]=='K')){b[i+2][j+1]='-';}
+				if((i-1)>-1 && (j+2)<8 && (b[i-1][j+2]=='.' || b[i-1][j+2]=='K')){b[i-1][j+2]='-';}
+				if((i+1)<8 && (j+2)<8 && (b[i+1][j+2]=='.' || b[i+1][j+2]=='K')){b[i+1][j+2]='-';}
+			}
+			//CABALLO BLANCO
+			if(b[i][j]=='N'){
+				if((i+1)<8 && (j-2)>-1 && (b[i+1][j-2]=='.' || b[i+1][j-2]=='k')){b[i+1][j-2]='-';}
+				if((i-1)>-1 && (j-2)>-1 && (b[i-1][j-2]=='.' || b[i-1][j-2]=='k')){b[i-1][j-2]='-';}		
+				if((i-2)>-1 && (j-1)>-1 && (b[i-2][j-1]=='.' || b[i-2][j-1]=='k')){b[i-2][j-1]='-';}
+				if((i+2)<8 && (j-1)>-1 && (b[i+2][j-1]=='.' || b[i+2][j-1]=='k')){b[i+2][j-1]='-';}
+				if((i-2)>-1 && (j+1)<8 && (b[i-2][j+1]=='.' || b[i-2][j+1]=='k')){b[i-2][j+1]='-';}
+				if((i+2)<8 && (j+1)<8 && (b[i+2][j+1]=='.' || b[i+2][j+1]=='k')){b[i+2][j+1]='-';}
+				if((i-1)>-1 && (j+2)<8 && (b[i-1][j+2]=='.' || b[i-1][j+2]=='k')){b[i-1][j+2]='-';}
+				if((i+1)<8 && (j+2)<8 && (b[i+1][j+2]=='.' || b[i+1][j+2]=='k')){b[i+1][j+2]='-';}
+			}
+			//ALFIL NEGRO
+			if(b[i][j]=='b'){
+				int w=1,x=1,y=1,z=1;
+				while((i-w)>-1 && (j-w)>-1 && (b[i-w][j-w]=='.' || b[i-w][j-w]=='K' || b[i-w][j-w]=='-')){b[i-w][j-w]='-';w++;}
+				while((i-x)>-1 && (j+x)<8 && (b[i-x][j+x]=='.' || b[i-x][j+x]=='K' || b[i-x][j+x]=='-')){b[i-x][j+x]='-';x++;}
+				while((i+y)<8 && (j-y)>-1 && (b[i+y][j-y]=='.' || b[i+y][j-y]=='K' || b[i+y][j-y]=='-')){b[i+y][j-y]='-';y++;}
+				while((i+z)<8 && (j+z)<8 && (b[i+z][j+z]=='.' || b[i+z][j+z]=='K' || b[i+z][j+z]=='-')){b[i+z][j+z]='-';z++;}
+			}
+			//ALFIL BLANCO
+			if(b[i][j]=='B'){
+				int w=1,x=1,y=1,z=1;
+				while((i-w)>-1 && (j-w)>-1 && (b[i-w][j-w]=='.' || b[i-w][j-w]=='k' || b[i-w][j-w]=='-')){b[i-w][j-w]='-';w++;}
+				while((i-x)>-1 && (j+x)<8 && (b[i-x][j+x]=='.' || b[i-x][j+x]=='k' || b[i-x][j+x]=='-')){b[i-x][j+x]='-';x++;}
+				while((i+y)<8 && (j-y)>-1 && (b[i+y][j-y]=='.' || b[i+y][j-y]=='k' || b[i+y][j-y]=='-')){b[i+y][j-y]='-';y++;}
+				while((i+z)<8 && (j+z)<8 && (b[i+z][j+z]=='.' || b[i+z][j+z]=='k' || b[i+z][j+z]=='-')){b[i+z][j+z]='-';z++;}
+			}
+			//TORRE NEGRA
+			if(b[i][j]=='r'){
+				int w=1,x=1,y=1,z=1;
+				while((j-w)>-1 && (b[i][j-w]=='.' || b[i][j-w]=='K' || b[i][j-w]=='-')){b[i][j-w]='-';w++;}
+				while((i-x)>-1 && (b[i-x][j]=='.' || b[i-x][j]=='K' || b[i-x][j]=='-')){b[i-x][j]='-';x++;}
+				while((j+y)<8 && (b[i][j+y]=='.' || b[i][j+y]=='K' || b[i][j+y]=='-')){b[i][j+y]='-';y++;}
+				while((i+z)<8 && (b[i+z][j]=='.' || b[i+z][j]=='K' || b[i+z][j]=='-')){b[i+z][j]='-';z++;}
+			}
+			//TORRE BLANCA
+			if(b[i][j]=='R'){
+				int w=1,x=1,y=1,z=1;
+				while((j-w)>-1 && (b[i][j-w]=='.' || b[i][j-w]=='k' || b[i][j-w]=='-')){b[i][j-w]='-';w++;}
+				while((i-x)>-1 && (b[i-x][j]=='.' || b[i-x][j]=='k' || b[i-x][j]=='-')){b[i-x][j]='-';x++;}
+				while((j+y)<8 && (b[i][j+y]=='.' || b[i][j+y]=='k' || b[i][j+y]=='-')){b[i][j+y]='-';y++;}
+				while((i+z)<8 && (b[i+z][j]=='.' || b[i+z][j]=='k' || b[i+z][j]=='-')){b[i+z][j]='-';z++;}
+			}
+			//REYNA NEGRA
+			if(b[i][j]=='q'){
+				int w=1,x=1,y=1,z=1;
+				while((i-w)>-1 && (j-w)>-1 && (b[i-w][j-w]=='.' || b[i-w][j-w]=='K' || b[i-w][j-w]=='-')){b[i-w][j-w]='-';w++;}
+				while((i-x)>-1 && (j+x)<8 && (b[i-x][j+x]=='.' || b[i-x][j+x]=='K' || b[i-x][j+x]=='-')){b[i-x][j+x]='-';x++;}
+				while((i+y)<8 && (j-y)>-1 && (b[i+y][j-y]=='.' || b[i+y][j-y]=='K' || b[i+y][j-y]=='-')){b[i+y][j-y]='-';y++;}
+				while((i+z)<8 && (j+z)<8 && (b[i+z][j+z]=='.' || b[i+z][j+z]=='K' || b[i+z][j+z]=='-')){b[i+z][j+z]='-';z++;}
+				w=1,x=1,y=1,z=1;
+				while((j-w)>-1 && (b[i][j-w]=='.' || b[i][j-w]=='K' || b[i][j-w]=='-')){b[i][j-w]='-';w++;}
+				while((i-x)>-1 && (b[i-x][j]=='.' || b[i-x][j]=='K' || b[i-x][j]=='-')){b[i-x][j]='-';x++;}
+				while((j+y)<8 && (b[i][j+y]=='.' || b[i][j+y]=='K' || b[i][j+y]=='-')){b[i][j+y]='-';y++;}
+				while((i+z)<8 && (b[i+z][j]=='.' || b[i+z][j]=='K' || b[i+z][j]=='-')){b[i+z][j]='-';z++;}
+			} 
+			//REYNA BLANCA
+			if(b[i][j]=='Q'){
+				int w=1,x=1,y=1,z=1;
+				while((i-w)>-1 && (j-w)>-1 && (b[i-w][j-w]=='.' || b[i-w][j-w]=='k' || b[i-w][j-w]=='-')){b[i-w][j-w]='-';w++;}
+				while((i-x)>-1 && (j+x)<8 && (b[i-x][j+x]=='.' || b[i-x][j+x]=='k' || b[i-x][j+x]=='-')){b[i-x][j+x]='-';x++;}
+				while((i+y)<8 && (j-y)>-1 && (b[i+y][j-y]=='.' || b[i+y][j-y]=='k' || b[i+y][j-y]=='-')){b[i+y][j-y]='-';y++;}
+				while((i+z)<8 && (j+z)<8 && (b[i+z][j+z]=='.' || b[i+z][j+z]=='k' || b[i+z][j+z]=='-')){b[i+z][j+z]='-';z++;}
+				w=1,x=1,y=1,z=1;
+				while((j-w)>-1 && (b[i][j-w]=='.' || b[i][j-w]=='k' || b[i][j-w]=='-')){b[i][j-w]='-';w++;}
+				while((i-x)>-1 && (b[i-x][j]=='.' || b[i-x][j]=='k' || b[i-x][j]=='-')){b[i-x][j]='-';x++;}
+				while((j+y)<8 && (b[i][j+y]=='.' || b[i][j+y]=='k' || b[i][j+y]=='-')){b[i][j+y]='-';y++;}
+				while((i+z)<8 && (b[i+z][j]=='.' || b[i+z][j]=='k' || b[i+z][j]=='-')){b[i+z][j]='-';z++;}
+			} 
+		}
+	}
+	return b;
+}
+int main(){
+	int continuar=1,t=0;
+	while(continuar){
+		string s[8];
+		rep(i,8) cin>>s[i];
+		continuar=1-vacio(s);
+		if(continuar==0) break;
+		vector<vector<char> >v(8,vector<char>(8)),g;
+		//Lleno input a v
+		int ri=-1,rj=-1,Ri=-1,Rj=-1;
+		rep(i,8){
+			rep(j,8){
+				v[i][j]=s[i][j];
+				if(v[i][j]=='k'){ri=i;rj=j;}
+				if(v[i][j]=='K'){Ri=i;Rj=j;}
+			}
+		}
+		v=ajedrez(v);
+		cout<<"Game #"<<++t<<": ";
+		if((ri!=-1 && ri!=-1) && v[ri][rj]=='-'){cout<<"black king is in check."<<endl;}
+		else if((Ri!=-1 && Ri!=-1) && v[Ri][Rj]=='-'){cout<<"white king is in check."<<endl;}
+		else{cout<<"no king is in check."<<endl;}
+	}
+	return 0;
+}
+*******

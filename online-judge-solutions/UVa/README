@@ -51,8 +51,10 @@
 │   │       └── 661-BlowingFuses
 │   └── 02-Ad_Hoc_Problems-Part_1
 │       ├── 02-Game_Chess
+│       │   ├── 10196-CheckTheCheck
 │       │   ├── 10284-ChessboardinFEN
 │       │   ├── 11494-Queen
+│       │   ├── 255-CorrectMove
 │       │   ├── 278-Chess
 │       │   └── 696-HowManyKnights
 │       ├── 03-Game_Others_Easier
@@ -94,6 +96,7 @@
 │   │   │   ├── 10855-Rotatedsquare
 │   │   │   ├── 11360-HaveFunwithMatrices
 │   │   │   ├── 12187-Brothers
+│   │   │   ├── 12398-NumPuzzI
 │   │   │   ├── 434-MattysBlocks
 │   │   │   └── 466-MirrorMirror
 │   │   ├── 03-C++_STL_Algorithm
@@ -125,4 +128,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-125 directories
+128 directories
