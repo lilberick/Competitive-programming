@@ -1,0 +1,32 @@
+*******link del problema:
+https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1790
+*******Accepted:
+#include<iostream>
+#include<stdlib.h>
+#define REP(i,b,n) for(int i=b;i<n;i++)
+#define rep(i,n) REP(i,0,n)
+using namespace std;
+string Casilla(int a,int b){
+	string s;
+	if(abs((a-1)-(b-1))%2!=0){s="blanca";}
+	else{s="negra";}
+	return s;
+}
+int main(){
+	int C,T,N,a,b,c,d;
+	cin>>C;
+	while(C--){
+		cin>>T>>N;
+		rep(i,T){
+			cin>>a>>b>>c>>d;
+			if(Casilla(a,b)!=Casilla(c,d)){cout<<"no move"<<endl;}
+			else{
+				if(a==c && b==d){cout<<"0"<<endl;}
+				else if(abs(a-c)==abs(b-d)){cout<<"1"<<endl;}
+				else{cout<<"2"<<endl;}
+			}
+		}
+	}
+	return 0;
+}
+*******
