@@ -57,6 +57,7 @@
 │       │   │   └── Imagenes
 │       │   ├── 11494-Queen
 │       │   ├── 255-CorrectMove
+│       │   │   └── Imagenes
 │       │   ├── 278-Chess
 │       │   └── 696-HowManyKnights
 │       ├── 03-Game_Others_Easier
@@ -130,4 +131,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-130 directories
+131 directories
