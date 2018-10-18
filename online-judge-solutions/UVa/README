@@ -50,6 +50,9 @@
 │   │       ├── 573-TheSnail
 │   │       └── 661-BlowingFuses
 │   └── 02-Ad_Hoc_Problems-Part_1
+│       ├── 01-Game_Card
+│       │   └── 555-BridgeHands
+│       │       └── Imagenes
 │       ├── 02-Game_Chess
 │       │   ├── 10196-CheckTheCheck
 │       │   ├── 10284-ChessboardinFEN
@@ -131,4 +134,4 @@
     └── 02-Mathematical_Simulation-Brute_Force-Easier
         └── 100-The3n+1problem
 
-131 directories
+134 directories
