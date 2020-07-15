@@ -1,2 +1,3 @@
 # Competitive-programming
-XD
+![](.img/1.gif)
+![](.img/1.png)
