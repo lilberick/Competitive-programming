@@ -9,12 +9,15 @@
 │   └── 118A.txt
 ├── 1311A
 │   └── README.md
+├── 1367A
+│   └── README.md
+├── 1385A
+│   └── README.md
 ├── 158A
 │   ├── 158A.png
 │   └── 158A.txt
 ├── 17A
-│   ├── 17.pdf
-│   └── A.Noldbachproblem.txt
+│   └── README.md
 ├── 1A
 │   └── README.md
 ├── 214A
@@ -58,7 +61,8 @@
 ├── 96A
 │   ├── 1.pdf
 │   └── A.Football.txt
+├── ga
 └── README.md
 
-19 directories, 36 files
+21 directories, 38 files
 ```
