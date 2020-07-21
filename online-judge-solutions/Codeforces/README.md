@@ -11,8 +11,7 @@
 ├── 1154A
 │   └── README.md
 ├── 118A
-│   ├── 118A.png
-│   └── 118A.txt
+│   └── README.md
 ├── 1250F
 │   └── README.md
 ├── 1311A
@@ -22,15 +21,13 @@
 ├── 1385A
 │   └── README.md
 ├── 158A
-│   ├── 158A.png
-│   └── 158A.txt
+│   └── README.md
 ├── 17A
 │   └── README.md
 ├── 1A
 │   └── README.md
 ├── 214A
-│   ├── 18.pdf
-│   └── A.SystemofEquations.txt
+│   └── README.md
 ├── 4A
 │   └── README.md
 ├── 50A
@@ -73,8 +70,7 @@
 ├── 96A
 │   ├── 1.pdf
 │   └── A.Football.txt
-├── ga
 └── README.md
 
-27 directories, 44 files
+27 directories, 41 files
 ```
