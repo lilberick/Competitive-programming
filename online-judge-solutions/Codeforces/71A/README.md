@@ -45,24 +45,21 @@ p43s
 ---
 
 ## Solution
+
 ```c++
-//Lang		:	GNU C++11
-//Time		:	31 ms
-//Memory	:	3800 KB
+//Lang		:	GNU C++17
+//Time		:	30 ms
+//Memory	:	0 KB
 #include<iostream>
 #include<string>
 using namespace std;
 int main(){
-	int n;
-	string s;
-	while(cin>>n){
-		while(n--){
-			cin>>s;
-			int t=s.size();
-			string s1=s.substr(1,t-2);
-			if(t<=10) cout<<s<<"\n";
-			else 	 cout<<s[0]<<s1.size()<<s[t-1]<<"\n";
-		}
+	int n; string s;
+	cin>>n;
+	while(n--){
+		cin>>s;
+		s.size()>10 ?  cout<<s[0]<<s.size()-2<<s[s.size()-1]<<endl : cout<<s<<endl;
 	}
+	return 0;
 }
 ```
