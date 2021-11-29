@@ -1,7 +1,13 @@
 ## [Codeforces](https://codeforces.com/ "Dale clic papi")
+
 ![](.img/1.png)
 
+## Sugerencia
+
+Resuelve los preblemas según el [**orden de dificultad**](https://codeforces.com/problemset?order=BY_RATING_ASC)
+
 ## Tree
+
 ```
 .
 ├── 1027A
