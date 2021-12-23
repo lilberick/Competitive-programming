@@ -124,8 +124,7 @@ Resuelve los preblemas según el [**orden de dificultad**](https://codeforces.co
 ├── 791A
 │   └── README.md
 ├── 80A
-│   ├── 16.pdf
-│   └── A.PanoramixsPrediction.txt
+│   └── README.md
 ├── 96A
 │   └── README.md
 ├── 977A
@@ -135,5 +134,5 @@ Resuelve los preblemas según el [**orden de dificultad**](https://codeforces.co
 ├── output
 └── README.md
 
-59 directories, 65 files
+59 directories, 64 files
 ```
