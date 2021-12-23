@@ -115,12 +115,9 @@ Resuelve los preblemas según el [**orden de dificultad**](https://codeforces.co
 ├── 743A
 │   └── README.md
 ├── 761A
-│   ├── A.DashaandStairs.txt
-│   └── DashaAndStairs.pdf
+│   └── README.md
 ├── 766A
-│   ├── 1.pdf
-│   ├── AMahmoudandLongestUncommonSubsequence.txt
-│   └── wrong.png
+│   └── README.md
 ├── 766B
 │   ├── 5.pdf
 │   └── B.MahmoudandaTriangle.txt
@@ -138,5 +135,5 @@ Resuelve los preblemas según el [**orden de dificultad**](https://codeforces.co
 ├── output
 └── README.md
 
-59 directories, 68 files
+59 directories, 65 files
 ```
