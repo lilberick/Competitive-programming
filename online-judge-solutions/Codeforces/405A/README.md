@@ -57,7 +57,7 @@ The first example case is shown on the figure. The top cube of the first column 
 
 In the second example case the gravity switch does not change the heights of the columns.
 
-## Solution
+## Solution 1: a lo bruto
 
 ```c++
 //Lang		:	GNU C++14
@@ -112,6 +112,33 @@ int main(){
 		v=transpose(v);
 		for(int i=0;i<v.size();i++){	
 			cout<<count(v[i].begin(),v[i].end(),1)<<" ";
+		}cout<<endl;
+	}
+	return 0;
+}
+```
+
+## Solution 2: pensando
+
+```c++
+//Lang		:	GNU C++14
+//Time		:	15 ms
+//Memory	:	0 KB
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+	int n,a;
+	while(cin>>n){
+		vector<int> v;
+		while(n--){
+			cin>>a;
+			v.push_back(a);
+		}
+		sort(v.begin(),v.end());
+		for(int i=0;i<v.size();i++){
+			cout<<v[i]<<" ";
 		}cout<<endl;
 	}
 	return 0;
