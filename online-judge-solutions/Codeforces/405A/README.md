@@ -17,6 +17,8 @@ There are n columns of toy cubes in the box arranged in a line. The *i*-th colum
 
 ![](.img/1.png)
 
+![](.img/animacion.gif)
+
 Given the initial configuration of the toy cubes in the box, find the amounts of cubes in each of the n columns after the gravity switch!
 
 ## Input
