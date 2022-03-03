@@ -57,7 +57,6 @@ AbCdEfF
 
 ## Note
 
-Note
 If you want more formal information about the lexicographical order (also known as the "<ins>dictionary order</ins>" or "<ins>alphabetical order</ins>"), you can visit the following site:
 
 * http://en.wikipedia.org/wiki/Lexicographical_order
