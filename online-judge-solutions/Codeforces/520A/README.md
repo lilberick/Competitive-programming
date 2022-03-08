@@ -1,6 +1,6 @@
 # Pangram
 
-> https://codeforces.com/problemset/problem/112/A
+> https://codeforces.com/problemset/problem/520/A
 
 ```
 time limit per test	:	2 seconds
