@@ -67,11 +67,10 @@ third1
 
 ```c++
 //Lang		:	GNU C++14
-//Time		:	1340 ms
+//Time		:	1372 ms
 //Memory	:	900 KB
 #include <iostream>
 #include <map>
-#define tr(c,i) for(typeof(c.begin()) i=c.begin(); i!=c.end(); i++)
 using namespace std;
 int main(){
 	int n;
