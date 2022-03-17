@@ -65,8 +65,7 @@ bool es_primo(long long number){
 }
 bool cuadrado_perfecto(long long n){
 	long long r=sqrt(n);
-	if(r*r==n){return true;}
-	return false;
+	return r*r==n;
 }
 int main(){
 	long long n,a;
