@@ -49,7 +49,7 @@ The given test has three numbers. The first number 4 has exactly three divisors 
 
 ```c++
 //Lang		:	GNU C++14
-//Time		:	1528 ms
+//Time		:	1496 ms
 //Memory	:	0 KB
 #include<iostream>
 #include<math.h>
