@@ -23,7 +23,7 @@ We have a proof that it is always possible with finitely many operations.
 
 ## Input
 
-The first line contains a single integer ***t*** (***1*** ≤ ***t*** ≤ ***1000***) — the number of test cases. Then t test cases follow.
+The first line contains a single integer ***t*** (***1*** ≤ ***t*** ≤ ***1000***) — the number of test cases. Then ***t*** test cases follow.
 
 The first line of each test case contains a single integer ***n*** (***1*** ≤ ***n*** ≤ ***50***) — the length of the initial array ***a***.
 
@@ -69,8 +69,45 @@ In the fourth test case, we can add a single integer ***4***. The arithmetic mea
 
 ## Solution
 
-```c++
-//Lang		:	GNU C++14
-//Time		:	30 ms
-//Memory	:	0 KB
-```
+* C
+
+	```C
+	//Lang		:	GNU C11
+	//Time		:	31 ms
+	//Memory	:	0 KB
+	#include <stdio.h>
+	int main(){
+		int t,n;
+		while(scanf("%d",&t) != EOF){
+			while(t--){
+				scanf("%d",&n);
+				int a[n],t=0;
+				while(n--){
+					scanf("%d",&a[t]);
+					t++;
+				}
+				int s=sizeof(a)/sizeof(*a),suma=0,r;
+				for(int i=0;i<s;i++){
+					suma+=a[i];
+				}
+				if(suma<s){r=1;}
+				else{r=suma-s;}
+				printf("%d\n",r);
+			}
+		}
+	}
+	```
+
+* Python
+
+	```py
+	#Lang		:	Python 3.8
+	#Time		:	62 ms
+	#Memory	:	0 KB
+	t=int(input())
+	while(t>0):
+	    t-=1
+	    n=int(input())
+	    a=list(map(int,input().split()))[:n]
+	    print(1) if sum(a)<len(a) else print(sum(a)-len(a))
+	```
