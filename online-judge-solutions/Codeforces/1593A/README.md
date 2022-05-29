@@ -17,7 +17,7 @@ Please note that for each candidate it is necessary to solve this problem **inde
 
 ## Input
 
-The first line contains one integer ***t*** (***1***≤***t***≤***104***) — the number of test cases. Then ***t*** test cases follow.
+The first line contains one integer ***t*** ( ***1*** ≤ ***t***≤ ***10<sup>4</sup>*** ) — the number of test cases. Then ***t*** test cases follow.
 
 Each test case consists of one line containing three integers ***a***, ***b***, and ***c*** ( ***0*** ≤ ***a*** , ***b*** , ***c***≤***10<sup>9</sup>*** ).
 
