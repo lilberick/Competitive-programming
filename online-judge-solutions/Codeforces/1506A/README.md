@@ -81,19 +81,20 @@ For each test case, output the cell number in the numbering "**by rows**".
 
 	```c
 	//Lang		:	GNU C11
-	//Time		:	15 ms
+	//Time		:	62 ms
 	//Memory	:	0 KB
 	#include<stdio.h>
 	int main(){
-		long long t,n,m,x;
+		long long t,n,m,x,k;
 		while(scanf("%lld",&t)!=EOF){
 			while(t--){
 				scanf("%lld%lld%lld",&n,&m,&x);
-				if(x==n*m) printf("%lld\n",x);
-				else printf("%lld\n",(x+n-1)/n+m*(x%n-1));
+				if(x%n==0){k=n;}
+				else{k=x%n;}
+				printf("%lld\n",(x+n-1)/n+m*(k-1));
 			}
 		}
-		return 0;
+	return 0;
 	}
 	```
 
@@ -101,12 +102,12 @@ For each test case, output the cell number in the numbering "**by rows**".
 
 	```py
 	#Lang		:	Python 3.8
-	#Time		:	15 ms
+	#Time		:	140 ms
 	#Memory	:	0 KB
 	t=int(input())
 	while(t>0):
 	    t-=1
 	    n,m,x=map(int,input().split())
-	    if(x==n*m): print(x)
-	    else: print(int((x+n-1)/n)+m*(x%n-1))
+	    k=n if x%n==0 else x%n
+	    print(int((x+n-1)/n)+m*(k-1))
 	```
