@@ -15,8 +15,9 @@ Cirno's perfect bitmasks classroom has just started!
 
 Cirno gave her students a positive integer ***x***. As an assignment, her students need to find the **minimum positive** integer ***y***, which satisfies the following two conditions:
 
-$$x and y>0$$
-$$x xor y>0$$
+* x **and** y > 0
+
+* x **xor** y > 0
 
 Where ***and*** is the [bitwise AND operation](https://en.wikipedia.org/wiki/Bitwise_operation#AND), and **xor** is the [bitwise XOR operation](https://en.wikipedia.org/wiki/Bitwise_operation#XOR).
 
