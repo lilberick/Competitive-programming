@@ -13,7 +13,7 @@ output			:	standard ouput
 
 Given an integer ***n***, find the maximum value of integer ***k*** such that the following condition holds:
 
-$$n \quad\&\quad (n-1) \quad\&\quad (n-2) \quad\&\quad (n-3) \quad\&\quad ...\quad (k) = 0$$
+* n  & (n−1) & (n−2) & (n−3) & ... (k) = 0
 
 where & denotes the [bitwise AND operation](https://en.wikipedia.org/wiki/Bitwise_operation#AND).
 
@@ -81,7 +81,7 @@ Hence, ***3*** is the answer.
 
 	```py
 	#Lang		:	Python 3.8
-	#Time		:	140 ms
+	#Time		:	280 ms
 	#Memory	:	0 KB
 	import math
 	t=int(input())
