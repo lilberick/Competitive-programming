@@ -1,3 +1,4 @@
+//https://codeforces.com/problemset/problem/1399/B
 //Lang		:	GNU C++14
 //Time		:	62 ms
 //Memory	:	0 KB
