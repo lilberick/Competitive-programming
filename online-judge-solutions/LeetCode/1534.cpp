@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/count-good-triplets
-//Lang		:	GNU C++14
+//Lang		:	C++
 //Time		:	98 ms
 //Memory	:	8.1 MB
 class Solution {
