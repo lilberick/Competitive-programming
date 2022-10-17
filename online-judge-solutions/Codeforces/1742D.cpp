@@ -1,7 +1,7 @@
 //https://codeforces.com/problemset/problem/1742/D
 //Lang		:	GNU C++14
 //Time		:	514 ms
-//Memory	:	1000 KB
+//Memory	:	0 KB
 #include<iostream>
 #include<algorithm>
 using namespace std;
@@ -14,8 +14,8 @@ int main(){
 		int r=-1;
 		int a[1001]={0};
 		for(int i=1;i<=n;i++){cin>>x;a[x]=i;}
-		for(int i=1;i<1000;i++){
-			for(int j=1;j<1000;j++){
+		for(int i=1;i<1001;i++){
+			for(int j=1;j<1001;j++){
 				if(a[i] && a[j] && __gcd(i,j)==1) r=max(r,a[i]+a[j]);
 			}
 		}
@@ -23,3 +23,4 @@ int main(){
 	}
 	return 0;
 }
+
