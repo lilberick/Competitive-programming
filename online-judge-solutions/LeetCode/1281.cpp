@@ -1,16 +1,15 @@
-//https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer
+//https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
 //Lang		:	C++
-//Time		:	0 ms
-//Memory	:	5.8 MB
+//Time		:	3 ms
+//Memory	:	6 MB
+#include<string>
 class Solution{
 	public:
-	    int subtractProductAndSum(int n){
-		    string t=to_string(n);
-		    int s=0,p=1;
-		    for(char x:t){
-			    s+=x-48;
-			    p*=x-48;
-		    }
-		    return p-s;
-	    }
+		int subtractProductAndSum(int n){
+			string s;s=to_string(n);
+			int p=1,t=0;
+			for(int i=0;i<s.size();i++){p*=(s[i]-'0');}
+			for(int i=0;i<s.size();i++){t+=(s[i]-'0');}
+			return p-t;
+		}
 };
