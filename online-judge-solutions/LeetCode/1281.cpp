@@ -2,7 +2,6 @@
 //Lang		:	C++
 //Time		:	3 ms
 //Memory	:	6 MB
-#include<string>
 class Solution{
 	public:
 		int subtractProductAndSum(int n){
